@@ -4,7 +4,7 @@
 @csrf
 <div class="container" style="padding-top: 50px; padding-bottom: 200px;">
     <section class="jumbotron text-center">
-        <h1><?php $s = $_GET["s"]; ?></h1>
+        <h1></h1>
         <div class="container">
         <form class="form-inline" action="/home/search" method="GET">
                 <select class="form-control col-md-10 font-weight-bold" name="s">

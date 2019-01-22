@@ -25,22 +25,34 @@ class PagesController extends Controller
 
         // $commercialspace = CommercialSpace::orderBy('id', 'desc')->paginate(9);
         // return view('pages.commercialspacesearch4')->with('commercialspace', $commercialspace);
+
+        // $search = DB::table('commerical_spaces');
+
         if($request->has('cat')){
+            // $search = $search->where('p_category', $request->cat);
             $p_category = $request->input('cat');
         }else{
-            $p_category = "-";
+            $p_category = "%";
+        }
+        if($request->has('s')){
+            // $search = $search->where('p_category', $request->cat);
+            $p_s = $request->input('s');
+        }else{
+            $p_s = "%";
         }
         if($request->has('type')){
+            // $search = $search->orWhere('p_type', $request->type);
             $p_type = $request->input('type');
         }else{
-            $p_type = "-";
+            $p_type = "%";
         }
         if($request->has('min_price')){
+            // $search = $search->orWhere('price', '<' $request->type);
             $min_price = $request->input('min_price');
         }else{
             $min_price = "-";
         }
-        if($request->has('cat')){
+        if($request->has('max_price')){
             $max_price = $request->input('max_price');
         }else{
             $max_price = "-";
@@ -48,13 +60,15 @@ class PagesController extends Controller
 
         // dd($p_category);
         $commercialspace = DB::table('commercial_spaces')
+                            ->orWhere('barangay', $p_s)
                             ->where('p_category',$p_category)
                             ->orWhere('p_type',$p_type)
-                            ->orWhere('price','>',$min_price)
-                            ->orWhere('price','<',$max_price)
+                            ->orWhere('price','>=',$min_price)
+                            ->where('price','<=',$max_price)
                             ->paginate(9);
+        $s = $request->s;
 
-        return view('pages.commercialspacesearch4')->with('commercialspace', $commercialspace);
+        return view('pages.commercialspacesearch4')->with('commercialspace', $commercialspace)->with('s',$s);
     }
 
     public function commercialspace($id) {
