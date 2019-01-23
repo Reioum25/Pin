@@ -13,7 +13,8 @@
       </div>
       <div class="container" style="position:absolute; left:8%; top:64%; width:100%;">
         <div class="carousel-caption">
-          <h2 style="color:#242124; font-family:Verdana;">Find and Locate commercial spaces in Zamboanga City</h2>
+          <h2 style="color:#242124; font-family:Verdana;">Find and Locate Potential Property here in Zamboanga</h2>
+          <br>
           <form class="" action="/list/search" method="GET">  
 
             <div class="row">        
@@ -54,9 +55,9 @@
                 
                  <select class="form-control col-md-4 font-weight-bold" name="type">
                     <option value="" selected disabled>Select Property Type</option>
-                    <option value="House and Lot">House and Lot</option>
                     <option value="Commercial Space">Commercial Space</option>
                     <option value="Lot">Lot</option>
+                    <option value="House and Lot">House and Lot</option>
                     <option value="Apartment">Apartment</option>
                   </select> 
 
@@ -110,7 +111,8 @@
                     <option value="20000000">PHP 20,000,000</option>
                     <option value="20000001">PHP 20,000,000+</option>
                   </select>  
-             </div>               
+             </div>  
+             <br>             
                 <button type="submit" class="btn btn-dark col-md-12">Search</button>
           </form>
         </div>
@@ -136,8 +138,8 @@
   <!-- Modal -->
   
     <div class="container">
-      <h1 class="jumbotron-heading">FIND THE BEST COMMERCIAL SPACE</h1>
-      <p class="lead text-muted">An accessible commercial space is recommended to startup business that want to make their name known. To be on top, a busines needs to have a concrete plan in order to achieve goals and finding an accurate spot is essential. Location is important.</p>
+      <h1 class="jumbotron-heading">FIND YOUR IDEAL PROPERTY</h1>
+      <p class="lead text-muted">Everyone has their own wish-list of elements that make up their ideal property. From transport links to the number of bedrooms, we have a selection of properties to choose from. If you find a property that you like we can arrange a viewing. When you have a viewing try and picture yourself living there, you’ll be making a commitment to the home you buy so make sure that it fills all of your requirements!</p>
     </div>
 </section>
 

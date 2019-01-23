@@ -104,6 +104,10 @@ class CommercialSpaceController extends Controller
         {
             $commercialspace = new CommercialSpace;
             $commercialspace->owner_id = auth()->user()->id;
+
+            $commercialspace->p_category = $request->input('Property_category');
+            $commercialspace->p_type = $request->input('Property_type');
+
             $commercialspace->space_name = $request->input('namespace');
             $commercialspace->about_space = $request->input('aboutspace');
             $commercialspace->sqm = $request->input('sqm');
@@ -215,6 +219,10 @@ class CommercialSpaceController extends Controller
         }
 
         $commercialspace = CommercialSpace::find($id); 
+
+        $commercialspace->p_category = $request->input('Property_category');
+        $commercialspace->p_type = $request->input('Property_type');
+
         $commercialspace->space_name = $request->input('namespace');
         $commercialspace->about_space = $request->input('aboutspace');
         $commercialspace->sqm = $request->input('sqm');
