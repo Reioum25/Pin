@@ -23,56 +23,57 @@ class PagesController extends Controller
 
     public function commercialspacesearch(Request $request) {
 
-        // $commercialspace = CommercialSpace::orderBy('id', 'desc')->paginate(9);
-        // return view('pages.commercialspacesearch4')->with('commercialspace', $commercialspace);
+        $commercialspaces = DB::table('commercial_spaces');
+        
+        if($request->has('cat'))
+        {
+            if(!is_null($request->cat))
+                $commercialspaces = $commercialspaces->where('p_category', $request->cat);
 
-        // $search = DB::table('commerical_spaces');
-
-        if($request->has('cat')){
-            // $search = $search->where('p_category', $request->cat);
-            $p_category = $request->input('cat');
-        }else{
-            $p_category = "%";
-        }
-        if($request->has('s')){
-            // $search = $search->where('p_category', $request->cat);
-            $p_s = $request->input('s');
-        }else{
-            $p_s = "%";
-        }
-        if($request->has('type')){
-            // $search = $search->orWhere('p_type', $request->type);
-            $p_type = $request->input('type');
-        }else{
-            $p_type = "%";
-        }
-        if($request->has('min_price')){
-            // $search = $search->orWhere('price', '<' $request->type);
-            $min_price = $request->input('min_price');
-        }else{
-            $min_price = "-";
-        }
-        if($request->has('max_price')){
-            $max_price = $request->input('max_price');
-        }else{
-            $max_price = "-";
         }
 
-        // dd($p_category);
-        $commercialspace = DB::table('commercial_spaces')
-                            ->orWhere('barangay', $p_s)
-                            ->where('p_category',$p_category)
-                            ->orWhere('p_type',$p_type)
-                            ->orWhere('price','>=',$min_price)
-                            ->where('price','<=',$max_price)
-                            ->paginate(9);
+        //Location or barangay
+        if($request->has('s'))
+        {
+            if($request->input('s'))
+            {
+                if($request->s != "Any")
+                    $commercialspaces = $commercialspaces->where('barangay', $request->s);
+            }
+        }
+
+        //Type
+        if($request->has('type'))
+        {
+            $commercialspaces = $commercialspaces->where('p_type', $request->type);
+        }
+
+        if($request->has('min_price') && $request->has('max_price'))
+        {
+            $min = $request->min_price;
+            $max = $request->max_price;
+            $commercialspaces = $commercialspaces->where(function($query) use($min, $max){
+                $query->where('price', '>=', $min)->where('price', '<=', $max);
+            });
+        }else if($request->has('min_price'))
+        {
+            $commercialspaces = $commercialspaces->where('price', '>=', $request->min_price);          
+        }else if($request->has('max_price'))
+        {
+            $commercialspaces = $commercialspaces->where('price', '<=', $request->max_price);
+        }
+
+        // $commercialspaces = $commercialspaces->toSql();
+        // dd($commercialspaces->toSql(), $commercialspaces->getBindings());
+        $commercialspaces = $commercialspaces->paginate(9);
+
         $s = $request->s;
 
-        return view('pages.commercialspacesearch4')->with('commercialspace', $commercialspace)->with('s',$s);
+        return view('pages.commercialspacesearch4')->with('commercialspaces', $commercialspaces)->with('s',$s);
     }
 
     public function commercialspace($id) {
-        $query = CommercialSpace::where('column_name',);
+        // $query = CommercialSpace::where('column_name',);
         $commercialspace = CommercialSpace::findOrFail($id);
         return view('pages.commercialspace4')->with('commercialspace', $commercialspace);
     }

@@ -41,7 +41,6 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::resource('/home/success', 'AppointmentConroller4');
     Route::resource('/home/rent', 'RentController');
 
-
     Route::get('/home', function()
     {
         if(Auth::user()->admin == 0)

@@ -18,6 +18,7 @@
 
             <div class="row">        
                <select class="form-control col-md-4 font-weight-bold" name="cat">
+                      <option value="">Any</option>
                       <option value="For Rent">For Rent</option>
                       <option value="For Sale">For Sale</option>
                       <option value="For Lease">For Lease</option>
@@ -25,6 +26,7 @@
 
               <select class="form-control col-md-8  font-weight-bold" name="s">
                   {{--<option value="%" selected disabled>-- Select Location --</option>--}}
+                  <option value="Any">Anywhere in Zamboanga</option>
                   <option value="Pueblo">Pueblo</option>
                   <option value="Ayala">Ayala</option>
                   <option value="Boalan">Boalan</option>

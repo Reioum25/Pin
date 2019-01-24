@@ -6,7 +6,7 @@
     <section class="jumbotron text-center">
         <h1>{{ $s }}</h1>
         <div class="container">
-        <form class="form-inline" action="/list/search" method="GET">
+            <form class="form-inline" action="/list/search" method="GET">
                 <select class="form-control col-md-10 font-weight-bold" name="s">
                     <option value="Ayala">Ayala</option>
                     <option value="Boalan">Boalan</option>
@@ -31,47 +31,91 @@
                     <option value="Zambowood">Zambowood</option>
                 </select>
                 <button type="submit" class="btn btn-dark col-md-2">Search</button>
-              </form>
+            </form>
         </div>
     </section>
-    
+
     <div class="album py-6 bg-light">
-            <div class="container">
-    
+        <div class="container">
             <div class="row">
-    
+                {{-- COMMENTED OUT
                     @if(count($commercialspace) > 0)
                     @foreach($commercialspace as $commercialspaces)
-                        @if($commercialspaces->barangay == $s)
-                        <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" style="height: 250px" src="/storage/images/{{$commercialspaces->image1}}" alt="Card image cap">
-                                    <div class="card-body">
-                                    <blockquote class="blockquote">
+                    @if($commercialspaces->barangay == $s)
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" style="height: 250px" src="/storage/images/{{$commercialspaces->image1}}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
                                     <h3 class="card-text mb-0">{{$commercialspaces->space_name}}</h3>
-                                    <footer class="blockquote-footer"><i class="fa fa-map-marker" style="font-size:15px;color:red;"></i> {{$commercialspaces->barangay}}, {{$commercialspaces->street}}</footer>
-                                    </blockquote>
-                                    <P class="card-text lead text-primary">&#8369;{{$commercialspaces->price}} <small class="text-muted">/ {{$commercialspaces->type}}</small></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                        <a href="/list/{{$commercialspaces->id}}/show" class="btn btn-lg btn-outline-dark" role="button">View More</a>
-                                        </div>
-                                    </div>
+                                    <footer class="blockquote-footer"><i class="fa fa-map-marker" style="font-size:15px;color:red;"></i>
+                                        {{$commercialspaces->barangay}}, {{$commercialspaces->street}}</footer>
+                                </blockquote>
+                                <P class="card-text lead text-primary">&#8369;{{$commercialspaces->price}} <small class="text-muted">/
+                                        {{$commercialspaces->type}}</small></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/list/{{$commercialspaces->id}}/show" class="btn btn-lg btn-outline-dark"
+                                            role="button">View
+                                            More</a>
                                     </div>
                                 </div>
-                                </div>
-                        @else
-    
-                        @endif
-                    @endforeach
-                        {{$commercialspace->links()}}
+                            </div>
+                        </div>
+                    </div>
                     @else
-                    
+
                     @endif
-    
-            </div>
+                    @endforeach
+                    {{$commercialspace->links()}}
+                    @else
+
+                    @endif
+                --}}
+                @foreach($commercialspaces as $commercial_space)
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" style="height: 250px" src="/storage/images/{{$commercial_space->image1}}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <blockquote class="blockquote">
+                                    <h3 class="card-text mb-0">{{$commercial_space->space_name}}</h3>
+                                    <footer class="blockquote-footer"><i class="fa fa-map-marker" style="font-size:15px;color:red;"></i>
+                                        {{$commercial_space->barangay}}, {{$commercial_space->street}}</footer>
+                                </blockquote>
+                                <div class="card-text lead text-primary mb-0 pb-0">
+                                    &#8369;
+                                    {{$commercial_space->price}}
+                                    <small class="text-muted">
+                                        @if($commercial_space->p_type != 'House and Lot')
+                                            / {{$commercial_space->type}}
+                                        @endif
+                                    </small>
+                                </div>
+                                <p class="text-secondary mt-0 pt-0">
+                                    {{$commercial_space->p_type}}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/list/{{$commercial_space->id}}/show" class="btn btn-lg btn-outline-dark"
+                                            role="button">View
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <div class="col-12">
+                    <div class="form-group">
+                        {{ $commercialspaces->appends($_GET)->links() }}
+                    </div>
+                </div>
             </div>
         </div>
-    
+    </div>
+
 </div>
 @endsection
