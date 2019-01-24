@@ -14,32 +14,105 @@
       <div class="container" style="position:absolute; left:8%; top:54%; width:100%;">
         <div class="carousel-caption">
           <h2 style="color:#242124; font-family:Verdana;">Find and Locate commercial spaces in Zamboanga City</h2>
-          <form class="form-inline" action="/home/search" method="GET">
-            <select class="form-control col-md-9 font-weight-bold" name="s">
-                <option value="Ayala">Ayala</option>
-                <option value="Boalan">Boalan</option>
-                <option value="Camino Nuevo">Camino Nuevo</option>
-                <option value="Canelar">Canelar</option>
-                <option value="Divisoria">Divisoria</option>
-                <option value="Guiwan">Guiwan</option>
-                <option value="Mercedes">Mercedes</option>
-                <option value="Pasonanca">Pasonanca</option>
-                <option value="Pueblo" selected>Pueblo</option>
-                <option value="Putik">Putik</option>
-                <option value="Recodo">Recodo</option>
-                <option value="San Roque">San Roque</option>
-                <option value="San Jose Gusu">San Jose Gusu</option>
-                <option value="Sta. Barbara">Sta. Barbara</option>
-                <option value="Sta. Catalina">Sta. Catalina</option>
-                <option value="Sta. Maria">Sta. Maria</option>
-                <option value="Suterville">Suterville</option>
-                <option value="Talon-Talon">Talon-Talon</option>
-                <option value="Tetuan">Tetuan</option>
-                <option value="Tugbungan">Tugbungan</option>
-                <option value="Zambowood">Zambowood</option>
-            </select>
-            
-            <button type="submit" class="btn btn-dark col-md-3">Search</button>
+          <form class="" action="/list/search" method="GET">  
+
+            <div class="row">        
+               <select class="form-control col-md-4 font-weight-bold" name="cat">
+                      <option value="For Rent">For Rent</option>
+                      <option value="For Sale">For Sale</option>
+                      <option value="For Lease">For Lease</option>
+                </select>  
+
+              <select class="form-control col-md-8  font-weight-bold" name="s">
+                  {{--<option value="%" selected disabled>-- Select Location --</option>--}}
+                  <option value="Pueblo">Pueblo</option>
+                  <option value="Ayala">Ayala</option>
+                  <option value="Boalan">Boalan</option>
+                  <option value="Camino Nuevo">Camino Nuevo</option>
+                  <option value="Canelar">Canelar</option>
+                  <option value="Divisoria">Divisoria</option>
+                  <option value="Guiwan">Guiwan</option>
+                  <option value="Mercedes">Mercedes</option>
+                  <option value="Pasonanca">Pasonanca</option>          
+                  <option value="Putik">Putik</option>
+                  <option value="Recodo">Recodo</option>
+                  <option value="San Roque">San Roque</option>
+                  <option value="San Jose Gusu">San Jose Gusu</option>
+                  <option value="Sta. Barbara">Sta. Barbara</option>
+                  <option value="Sta. Catalina">Sta. Catalina</option>
+                  <option value="Sta. Maria">Sta. Maria</option>
+                  <option value="Suterville">Suterville</option>
+                  <option value="Talon-Talon">Talon-Talon</option>
+                  <option value="Tetuan">Tetuan</option>
+                  <option value="Tugbungan">Tugbungan</option>
+                  <option value="Zambowood">Zambowood</option>
+              </select>
+            </div>
+
+          <div class="row">
+           
+                
+                 <select class="form-control col-md-4 font-weight-bold" name="type">
+                    <option value="" selected disabled>Select Property Type</option>
+                    <option value="Commercial Space">Commercial Space</option>
+                    <option value="Lot">Lot</option>
+                    <option value="House and Lot">House and Lot</option>
+                    <option value="Apartment">Apartment</option>
+                  </select> 
+
+
+                  <select class="form-control col-md-4 font-weight-bold" name="min_price">
+                    <option value="" selected disabled>Minimum Price</option>
+                    <option value="1">From Any</option>
+                    <option value="5000">PHP 5,000</option>
+                    <option value="10000">PHP 10,000</option>
+                    <option value="20000">PHP 20,000</option>
+                    <option value="50000">PHP 50,000</option>
+                    <option value="100000">PHP 100,000</option>
+                    <option value="250000">PHP 250,000</option>
+                    <option value="500000">PHP 500,000</option>
+                    <option value="750000">PHP 750,000</option>
+                    <option value="1000000">PHP 1,000,000</option>
+                    <option value="2000000">PHP 2,000,000</option>
+                    <option value="3000000">PHP 3,000,000</option>
+                    <option value="4000000">PHP 4,000,000</option>
+                    <option value="5000000">PHP 5,000,000</option>
+                    <option value="6000000">PHP 6,000,000</option>
+                    <option value="7000000">PHP 7,000,000</option>
+                    <option value="8000000">PHP 8,000,000</option>
+                    <option value="9000000">PHP 9,000,000</option>
+                    <option value="10000000">PHP 10,000,000</option>
+                    <option value="20000000">PHP 20,000,000</option>
+                    <option value="20000001">PHP 20,000,000 +</option>
+                  </select>
+
+                  <select class="form-control col-md-4 font-weight-bold" name="max_price">
+                    <option value="" selected disabled>Maximum Price</option>
+                    <option value="1">To Any</option>
+                    <option value="5000">PHP 5,000</option>
+                    <option value="10000">PHP 10,000</option>
+                    <option value="20000">PHP 20,000</option>
+                    <option value="50000">PHP 50,000</option>
+                    <option value="100000">PHP 100,000</option>
+                    <option value="250000">PHP 250,000</option>
+                    <option value="500000">PHP 500,000</option>
+                    <option value="750000">PHP 750,000</option>
+                    <option value="1000000">PHP 1,000,000</option>
+                    <option value="2000000">PHP 2,000,000</option>
+                    <option value="3000000">PHP 3,000,000</option>
+                    <option value="4000000">PHP 4,000,000</option>
+                    <option value="5000000">PHP 5,000,000</option>
+                    <option value="6000000">PHP 6,000,000</option>
+                    <option value="7000000">PHP 7,000,000</option>
+                    <option value="8000000">PHP 8,000,000</option>
+                    <option value="9000000">PHP 9,000,000</option>
+                    <option value="10000000">PHP 10,000,000</option>
+                    <option value="20000000">PHP 20,000,000</option>
+                    <option value="20000001">PHP 20,000,000+</option>
+                  </select>  
+             </div>  
+             <br>             
+                <button type="submit" class="btn btn-dark col-md-12">Search</button>
           </form>
         </div>
       </div>
@@ -62,8 +135,8 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">FIND THE BEST COMMERCIAL SPACE</h1>
-      <p class="lead text-muted">An accessible commercial space is recommended to startup business that want to make their name known. To be on top, a busines needs to have a concrete plan in order to achieve goals and finding an accurate spot is essential. Location is important.</p>
+      <h1 class="jumbotron-heading">FIND YOUR IDEAL PROPERTY</h1>
+      <p class="lead text-muted">Everyone has their own wish-list of elements that make up their ideal property. From transport links to the number of bedrooms, we have a selection of properties to choose from. If you find a property that you like we can arrange a viewing. When you have a viewing try and picture yourself living there, you’ll be making a commitment to the home you buy so make sure that it fills all of your requirements!</p>
     </div>
 </section>
 
