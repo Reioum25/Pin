@@ -236,7 +236,7 @@ Route::group(['middleware' => ['web','auth']], function()
         if(Auth::user()->admin == 0)
         {
             $commercialspace = CommercialSpace::orderBy('id', 'desc')->paginate(9);
-            return view('user.commercialspacesearch3')->with('commercialspace', $commercialspace);
+            return view('user.commercialspacesearch')->with('commercialspace', $commercialspace);
             
         }elseif(Auth::user()->admin == 1)
         {

@@ -35,15 +35,12 @@ class PagesController extends Controller
         //Location or barangay
         if($request->has('s'))
         {
-            if($request->input('s'))
-            {
-                if($request->s != "Any")
-                    $commercialspaces = $commercialspaces->where('barangay', $request->s);
-            }
+            if($request->s != "Any")
+                $commercialspaces = $commercialspaces->where('barangay', $request->s);
         }
 
         //Type
-        if($request->has('type'))
+        if($request->has('type') && !is_null($request->type))
         {
             $commercialspaces = $commercialspaces->where('p_type', $request->type);
         }
@@ -63,19 +60,19 @@ class PagesController extends Controller
             $commercialspaces = $commercialspaces->where('price', '<=', $request->max_price);
         }
 
-        // $commercialspaces = $commercialspaces->toSql();
-        // dd($commercialspaces->toSql(), $commercialspaces->getBindings());
         $commercialspaces = $commercialspaces->paginate(9);
 
         $s = $request->s;
+        
+        $request->flash();
 
-        return view('pages.commercialspacesearch4')->with('commercialspaces', $commercialspaces)->with('s',$s);
+        // return view('pages.commercial_space_search')->with('commercialspaces', $commercialspaces)->with('s',$s)->with('request', $request);
+        return view('pages.commercial_space_search_new')->with('commercialspaces', $commercialspaces)->with('s',$s)->with('request', $request);
     }
 
     public function commercialspace($id) {
-        // $query = CommercialSpace::where('column_name',);
         $commercialspace = CommercialSpace::findOrFail($id);
-        return view('pages.commercialspace4')->with('commercialspace', $commercialspace);
+        return view('pages.commercial_space')->with('commercialspace', $commercialspace);
     }
     public function about() {
 
