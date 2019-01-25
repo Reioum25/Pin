@@ -5,7 +5,7 @@
 <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">EPWESTO</h1>
-      <p class="lead text-muted"> The Epwesto: Zamboanga Commercial Space Rent Finder is a web app where users can search and view the different commercial space listings located in Zamboanga City.  It provides a more detailed information regarding these commercial spaces to help entrepreneurs in setting up their Startup business. </p>
+      <p class="lead text-muted"> Epwesto is an innovative property finder that offers a wide range of properties for sale and for rent within Zamboanga. Property seekers can easily find a house, apartment, land, or a commercial space online. Individual are guaranteed a trusted online presence by providing them their own personalized page. Epwesto provides a high level of transparency through professional photos, comprehensive property details, and regularly updated listings. The users combine location, property type, and offer type effortlessly to find exactly what you are looking for. Whether permanently, for long-term, or for short-term, using Epwesto to buy or rent properties is fast, secure, and stress-free. </p>
     </div>
 </section>
 </div>

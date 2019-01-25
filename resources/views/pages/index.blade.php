@@ -6,12 +6,12 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100 img-fluid" style="height: 600px; opacity: 0.5;" src="/images/44.jpg" alt="First slide">
+        <img class="d-block w-100 img-fluid" style="height: 550px; opacity: 0.6;" src="/images/ZamboangaCity.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" style="height: 600px ; opacity: 0.5;" src="/images/33.jpg" alt="Second slide">
+        <img class="d-block w-100 img-fluid" style="height: 550px ; opacity: 0.6;" src="/images/home2.jpg" alt="Second slide">
       </div>
-      <div class="container" style="position:absolute; left:8%; top:64%; width:100%;">
+      <div class="container" style="position:absolute; left:8%; top:74%; width:100%;">
         <div class="carousel-caption">
           <h2 style="color:#242124; font-family:Verdana;">Find and Locate Potential Property here in Zamboanga</h2>
           <br>
@@ -28,7 +28,6 @@
               <select class="form-control col-md-8  font-weight-bold" name="s">
                   {{--<option value="%" selected disabled>-- Select Location --</option>--}}
                   <option value="Any">Anywhere in Zamboanga</option>
-                  <option value="Pueblo">Pueblo</option>
                   <option value="Ayala">Ayala</option>
                   <option value="Boalan">Boalan</option>
                   <option value="Camino Nuevo">Camino Nuevo</option>
