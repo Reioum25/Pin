@@ -121,7 +121,7 @@
     </div>
 </div>
 
-<div style="padding-top: 30px; padding-bottom: 20px;">
+<div>
 <div class="card text-center">
     <div class="card-header">
       <h4>Map</h4>

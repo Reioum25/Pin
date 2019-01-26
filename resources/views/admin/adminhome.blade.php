@@ -31,6 +31,7 @@
                   {{--<option value="%" selected disabled>-- Select Location --</option>--}}
                   <option value="Any">Anywhere in Zamboanga</option>
                   <option value="Ayala">Ayala</option>
+                  <option value="Baliwasan">Baliwasan</option>
                   <option value="Boalan">Boalan</option>
                   <option value="Camino Nuevo">Camino Nuevo</option>
                   <option value="Canelar">Canelar</option>
