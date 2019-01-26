@@ -12,12 +12,12 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Commercial Space
+                          Properties
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/home/createspace">Add Commercial Space</a>
-                            <a class="dropdown-item" href="/home/list">Commercial Space List</a>
-                            <a class="dropdown-item" href="/home/ownerlist">My Commercial Space</a>
+                            <a class="dropdown-item" href="/home/createspace">Add New Property</a>
+                            <a class="dropdown-item" href="/list/search">Property Listings</a>
+                            <a class="dropdown-item" href="/home/ownerlist">My Registered Properties</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -30,10 +30,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">About Us</a>
+                      <a class="nav-link" href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Contact Us</a>
+                      <a class="nav-link" href="/contact">Contact Us</a>
                     </li>
                   </ul>
     

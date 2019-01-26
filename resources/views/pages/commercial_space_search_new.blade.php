@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+@csrf
     <div class="container-fluid mb-4">
         <div class="row">
             <div class="col-3">

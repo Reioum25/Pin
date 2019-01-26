@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/home">
-            ePwesto
+            Epwesto
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home/list">Commercial Space List</a>
+                    <a class="nav-link" href="/list/search">Properties</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,10 +23,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/home/about">About Us</a>
+                  <a class="nav-link" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/home/contact">Contact Us</a>
+                  <a class="nav-link" href="/contact">Contact Us</a>
                 </li>
               </ul>
 

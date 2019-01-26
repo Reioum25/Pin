@@ -35,6 +35,8 @@ class CreateCommercialSpacesTable extends Migration
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');
+            $table->string('p_category');
+            $table->string('p_type');
             $table->timestamps();
         });
     }

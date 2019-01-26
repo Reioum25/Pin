@@ -40,10 +40,10 @@ class CommercialSpaceController extends Controller
     {
         //
         $this->validate($request, [
-            'email' => 'required|string|email|max:255',
-            'image1' => 'image|nullable|max:1999',
-            'image2' => 'image|nullable|max:1999',
-            'image3' => 'image|nullable|max:1999'
+            'email' => 'required|email|max:255',
+            'image1' => 'image|nullable|max:6144',
+            'image2' => 'image|nullable|max:6144',
+            'image3' => 'image|nullable|max:6144'
         ]);
 
         // Handle file upload
@@ -128,8 +128,8 @@ class CommercialSpaceController extends Controller
             $commercialspace->image2 = $fileNameToStore2;
             $commercialspace->image3 = $fileNameToStore3;
             $commercialspace->save();
-        }
 
+        }
         return redirect('/home');
 
 
