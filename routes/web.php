@@ -17,6 +17,7 @@ use App\Comment;
 use App\Appointment;
 use App\Rent;
 
+
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
@@ -29,7 +30,7 @@ Auth::routes(['verify' => true]);
 Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
 
 
-Route::group(['middleware' => ['web','auth']], function()
+Route::group(['middleware' => ['web','auth', 'verified']], function()
 {
     Route::resource('/home/createspace', 'CommercialSpaceController');
     Route::resource('/home/registerowner', 'AccountController');
