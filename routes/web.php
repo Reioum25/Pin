@@ -25,7 +25,7 @@ Route::get('/list/search', 'PagesController@commercialspacesearch');
 Route::get('/list/{commercialspace}/show', 'PagesController@commercialspace');
 Route::resource('post', 'PostsController');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
 
 
