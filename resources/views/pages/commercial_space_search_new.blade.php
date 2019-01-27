@@ -21,28 +21,15 @@
                                 <div class="form-group">
                                     <label for="">Barangay</label>
                                     <select class="form-control" name="s">
-                                        <option value="Any">Anywhere in Zamboanga</option>
-                                        <option value="Pueblo">Pueblo</option>
-                                        <option value="Ayala">Ayala</option>
-                                        <option value="Boalan">Boalan</option>
-                                        <option value="Camino Nuevo">Camino Nuevo</option>
-                                        <option value="Canelar">Canelar</option>
-                                        <option value="Divisoria">Divisoria</option>
-                                        <option value="Guiwan">Guiwan</option>
-                                        <option value="Mercedes">Mercedes</option>
-                                        <option value="Pasonanca">Pasonanca</option>          
-                                        <option value="Putik">Putik</option>
-                                        <option value="Recodo">Recodo</option>
-                                        <option value="San Roque">San Roque</option>
-                                        <option value="San Jose Gusu">San Jose Gusu</option>
-                                        <option value="Sta. Barbara">Sta. Barbara</option>
-                                        <option value="Sta. Catalina">Sta. Catalina</option>
-                                        <option value="Sta. Maria">Sta. Maria</option>
-                                        <option value="Suterville">Suterville</option>
-                                        <option value="Talon-Talon">Talon-Talon</option>
-                                        <option value="Tetuan">Tetuan</option>
-                                        <option value="Tugbungan">Tugbungan</option>
-                                        <option value="Zambowood">Zambowood</option>
+                                        <option value="Any" selected="selected">Anywhere in Zamboanga</option>
+                                        <optgroup label="West Coast"></optgroup>
+                                        @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
+                                            <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                        @endforeach
+                                        <optgroup label="East Coast">East Coast</optgroup>
+                                        @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
+                                            <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">

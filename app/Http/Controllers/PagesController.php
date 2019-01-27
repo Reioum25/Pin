@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Input;
 use App\CommercialSpace;
+use App\Barangay;
 use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
     public function index() {
-
+        $barangays = Barangay::all();
         $commercialspace = CommercialSpace::orderBy('id', 'desc')->get();
-        return view('pages.index')->with('commercialspace', $commercialspace);
+        return view('pages.index')->with('commercialspace', $commercialspace)->with('barangays', $barangays);
     }
 
     public function commercialspacelist() {
@@ -22,7 +23,6 @@ class PagesController extends Controller
     }
 
     public function commercialspacesearch(Request $request) {
-
         $commercialspaces = DB::table('commercial_spaces');
         
         if($request->has('cat'))
@@ -36,7 +36,10 @@ class PagesController extends Controller
         if($request->has('s'))
         {
             if($request->s != "Any")
-                $commercialspaces = $commercialspaces->where('barangay', $request->s);
+            {
+                $barangay = Barangay::find($request->s)->name;
+                $commercialspaces = $commercialspaces->where('barangay', $barangay);
+            }
         }
 
         //Type
@@ -67,7 +70,7 @@ class PagesController extends Controller
         $request->flash();
 
         // return view('pages.commercial_space_search')->with('commercialspaces', $commercialspaces)->with('s',$s)->with('request', $request);
-        return view('pages.commercial_space_search_new')->with('commercialspaces', $commercialspaces)->with('s',$s)->with('request', $request);
+        return view('pages.commercial_space_search_new')->with('commercialspaces', $commercialspaces)->with('s',$s)->with('request', $request)->with('barangays', Barangay::all());
     }
 
     public function commercialspace($id) {
