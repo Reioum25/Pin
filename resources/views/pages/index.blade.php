@@ -18,43 +18,29 @@
           <form class="" action="/list/search" method="GET">  
 
             <div class="row">        
-               <select class="form-control col-md-4 font-weight-bold" name="cat">
-                      <option value="">Any</option>
-                      <option value="For Rent">For Rent</option>
-                      <option value="For Sale">For Sale</option>
-                      <option value="For Lease">For Lease</option>
-                </select>  
+              <select class="form-control col-md-4 font-weight-bold" name="cat">
+                <option value="">Any</option>
+                <option value="For Rent">For Rent</option>
+                <option value="For Sale">For Sale</option>
+                <option value="For Lease">For Lease</option>
+              </select>  
 
               <select class="form-control col-md-8  font-weight-bold" name="s">
-                  {{--<option value="%" selected disabled>-- Select Location --</option>--}}
-                  <option value="Any">Anywhere in Zamboanga</option>
-                  <option value="Ayala">Ayala</option>
-                  <option value="Baliwasan">Baliwasan</option>
-                  <option value="Boalan">Boalan</option>
-                  <option value="Camino Nuevo">Camino Nuevo</option>
-                  <option value="Canelar">Canelar</option>
-                  <option value="Divisoria">Divisoria</option>
-                  <option value="Guiwan">Guiwan</option>
-                  <option value="Mercedes">Mercedes</option>
-                  <option value="Pasonanca">Pasonanca</option>          
-                  <option value="Putik">Putik</option>
-                  <option value="Recodo">Recodo</option>
-                  <option value="San Roque">San Roque</option>
-                  <option value="San Jose Gusu">San Jose Gusu</option>
-                  <option value="Sta. Barbara">Sta. Barbara</option>
-                  <option value="Sta. Catalina">Sta. Catalina</option>
-                  <option value="Sta. Maria">Sta. Maria</option>
-                  <option value="Suterville">Suterville</option>
-                  <option value="Talon-Talon">Talon-Talon</option>
-                  <option value="Tetuan">Tetuan</option>
-                  <option value="Tugbungan">Tugbungan</option>
-                  <option value="Zambowood">Zambowood</option>
+
+                  <option value="Any" selected="selected">Anywhere in Zamboanga</option>
+                  <optgroup label="West Coast"></optgroup>
+                  @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
+                    <option value="{{ $barangay->id }}">{{ $barangay->name }}</option>
+                  @endforeach
+                  <optgroup label="East Coast">East Coast</optgroup>
+                  @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
+                    <option value="{{ $barangay->id }}">{{ $barangay->name }}</option>
+                  @endforeach
               </select>
             </div>
           <div class="row">
-           
-                
-                  <select class="form-control col-md-4 font-weight-bold" name="type">
+                 <select class="form-control col-md-4 font-weight-bold" name="type">
+
                     <option value="" selected disabled>Select Property Type</option>
                     <option value="Commercial Space">Commercial Space</option>
                     <option value="Room">Room</option>  
@@ -66,7 +52,7 @@
 
 
                   <select class="form-control col-md-4 font-weight-bold" name="min_price">
-                    <option value="" selected disabled>Minimum Price</option>
+                    <option value="null" selected disabled>Minimum Price</option>
                     <option value="1">From Any</option>
                     <option value="5000">PHP 5,000</option>
                     <option value="10000">PHP 10,000</option>
@@ -91,7 +77,7 @@
                   </select>
 
                   <select class="form-control col-md-4 font-weight-bold" name="max_price">
-                    <option value="" selected disabled>Maximum Price</option>
+                    <option value="null" selected disabled>Maximum Price</option>
                     <option value="1">To Any</option>
                     <option value="5000">PHP 5,000</option>
                     <option value="10000">PHP 10,000</option>
