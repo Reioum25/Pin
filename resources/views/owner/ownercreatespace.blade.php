@@ -67,7 +67,8 @@
                             <div class="form-inline">
                                 {{Form::select('barangay', [ 
                                 'Ayala' => 'Ayala', 
-                                'Boalan' => 'Boalan', 
+                                'Baliwasan' => 'Baliwasan', 
+                                'Boalan' => 'Boalan',   
                                 'Camino Nuevo' => 'Camino Nuevo', 
                                 'Canelar' => 'Canelar', 
                                 'Divisoria' => 'Divisoria', 

@@ -29,6 +29,7 @@
                   {{--<option value="%" selected disabled>-- Select Location --</option>--}}
                   <option value="Any">Anywhere in Zamboanga</option>
                   <option value="Ayala">Ayala</option>
+                  <option value="Baliwasan">Baliwasan</option>
                   <option value="Boalan">Boalan</option>
                   <option value="Camino Nuevo">Camino Nuevo</option>
                   <option value="Canelar">Canelar</option>
@@ -50,14 +51,15 @@
                   <option value="Zambowood">Zambowood</option>
               </select>
             </div>
-
           <div class="row">
            
                 
-                 <select class="form-control col-md-4 font-weight-bold" name="type">
+                  <select class="form-control col-md-4 font-weight-bold" name="type">
                     <option value="" selected disabled>Select Property Type</option>
                     <option value="Commercial Space">Commercial Space</option>
+                    <option value="Room">Room</option>  
                     <option value="Lot">Lot</option>
+                    <option value="House">House</option>
                     <option value="House and Lot">House and Lot</option>
                     <option value="Apartment">Apartment</option>
                   </select> 

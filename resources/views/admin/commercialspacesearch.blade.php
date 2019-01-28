@@ -23,7 +23,7 @@
                                     <label for="">Barangay</label>
                                     <select class="form-control" name="s">
                                         <option value="Any">Anywhere in Zamboanga</option>
-                                        <option value="Pueblo">Pueblo</option>
+                                        <option value="Baliwasan">Baliwasan</option>
                                         <option value="Ayala">Ayala</option>
                                         <option value="Boalan">Boalan</option>
                                         <option value="Camino Nuevo">Camino Nuevo</option>
@@ -51,7 +51,9 @@
                                     <select class="form-control" name="type">
                                         <option value="" selected disabled>Select Property Type</option>
                                         <option value="Commercial Space" {{ (old('type') == 'Commercial Space') ? "selected='selected'" : "" }}>Commercial Space</option>
+                                        <option value="Room" {{ (old('type') == 'Room') ? "selected='selected'" : "" }}>Room</option>
                                         <option value="Lot" {{ (old('type') == 'Lot') ? "selected='selected'" : "" }}>Lot</option>
+                                        <option value="House" {{ (old('type') == 'House') ? "selected='selected'" : "" }}>House</option>
                                         <option value="House and Lot" {{ (old('type') == 'House and Lot') ? "selected='selected'" : "" }}>House and Lot</option>
                                         <option value="Apartment" {{ (old('type') == 'Apartment') ? "selected='selected'" : "" }}>Apartment</option>
                                     </select> 
