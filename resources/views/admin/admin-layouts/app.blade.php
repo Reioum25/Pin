@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ePwesto</title>
+    <title>Epwesto</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,12 +26,11 @@
 
 </head>
 <body>
-    @include('admin.admin-style.navbar')
-    
-    <div id="app">
+    @include('admin.admin-style.navbar')  
+      <div id="app" style="padding-top: 66.22px;">
         @yield('content')
     </div>
 
-    @include('admin.admin-style.footer')
+    @include('style.footer')
 </body>
 </html>

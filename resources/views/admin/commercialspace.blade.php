@@ -43,7 +43,7 @@
         <hr style="border-top: 1px solid #8c8b8b;">
 
         <div class="blog-post" style="padding-top: 20px; padding-bottom: 20px;">
-          <h3 class="blog-post-title text-uppercase" style="font-family: Century Gothic;">About the space</h3>
+          <h3 class="blog-post-title text-uppercase" style="font-family: Century Gothic;">About the Property</h3>
           <p style="font-family: Century Gothic; font-size: 20px">{{$commercialspace->about_space}}</p>
           
         </div><!-- /.blog-post -->
@@ -116,7 +116,7 @@
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 box-shadow">
             <div class="card-header bg-dark">
-              <h4 class="my-0 font-weight-normal text-light" style="font-family: Century Gothic;">Rental Details</h4>
+              <h4 class="my-0 font-weight-normal text-light" style="font-family: Century Gothic;">{{$commercialspace->p_category}} Details</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title text-primary">&#8369;{{$commercialspace->price}} <small class="text-muted">/ {{$commercialspace->type}}</small></h1>
@@ -133,7 +133,7 @@
         <div class="card-deck mb-3 text-center">
           <div class="card mb-4 box-shadow">
             <div class="card-header bg-dark">
-              <h4 class="my-0 font-weight-normal text-light" style="font-family: Century Gothic;">Contack Us</h4>
+              <h4 class="my-0 font-weight-normal text-light" style="font-family: Century Gothic;">Contact Us</h4>
             </div>
             <div class="card-body">
               <h3 class="card-title pricing-card-title text-primary">Owner: {{$commercialspace->owner_name}}</h3>

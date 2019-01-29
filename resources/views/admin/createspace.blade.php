@@ -12,6 +12,8 @@
                         {!! Form::open(['action' => 'CommercialSpaceController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
 
+
+                                  <!--  PROPERTY CATEGORY -->
                            <div class="form-row">
                                <div class="form-group font-weight-bold col-md-6">
                                     {{Form::label('Property_category', 'Property Category')}}
@@ -20,7 +22,7 @@
                                         'For Sale' => 'For Sale',
                                         'For Lease' => 'For Lease'], null, ['class' => 'form-control col-md-6']) }}
                                </div>
-
+                                     <!--  PROPERTY TYPE -->
                                <div class="form-group font-weight-bold col-md-6">
                                         {{Form::label('Property_type', 'Property Type')}}
                                         {{Form::select('Property_type', [ 
@@ -42,7 +44,7 @@
 
                        <!--  ABOUT THE PROPERTY -->
                         <div class="form-group font-weight-bold">
-                            {{Form::label('aboutspace', 'About the Space')}}
+                            {{Form::label('aboutspace', 'About the Property')}}
                             {{Form::textarea('aboutspace', '', ['class' => 'form-control', 'rows' =>'3', 'placeholder' => 'Description', 'required'])}}
                         </div>
 
@@ -58,6 +60,7 @@
                             </div>
                         </div>
 
+                        <!--  QUANITY OF PROPERTY TO SAVE -->
                         <div class="form-group font-weight-bold">
                             {{Form::label('Quantity', 'Quantity')}}
                             {{Form::text('qty', '', ['class' => 'form-control', 'placeholder' => 'Number of property to Save', 'required'])}}
@@ -77,7 +80,6 @@
                                 'Guiwan' => 'Guiwan', 
                                 'Mercedes' => 'Mercedes', 
                                 'Pasonanca' => 'Pasonanca',
-                                'Pueblo' => 'Pueblo',
                                 'Putik' => 'Putik',
                                 'Recodo' => 'Recodo',
                                 'San Roque' => 'San Roque',
@@ -90,7 +92,6 @@
                                 'Tetuan' => 'Tetuan',
                                 'Tugbungan' => 'Tugbungan',
                                 'Zambowood' => 'Zambowood'], null, ['class' => 'form-control col-md-6']) }}
-
 
                                 {{Form::text('street', '', ['class' => 'form-control col-md-6', 'placeholder' => 'Street/Drive', 'required'])}}
                             </div>
@@ -152,6 +153,8 @@
                             {{Form::file('image3', ['class' => 'form-control'])}}
                         </div>
                         {{Form::submit('Submit', ['class' => 'btn btn-primary', 'col-md-6'])}}
+
+
                         {!! Form::close() !!}
                     </div>
                 </div>

@@ -17,7 +17,7 @@ class RentController extends Controller
         $rent->firstname = $request->input('firstname');
         $rent->lastname = $request->input('lastname');
         $rent->rent_duration = $request->input('rent_duration');
-        $rent->status = 'Unavalable';
+        $rent->status = 'Unavailable';
 
         $rent->save();
 
