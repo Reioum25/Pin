@@ -11,9 +11,9 @@
       <div class="carousel-item">
         <img class="d-block w-100 img-fluid" style="height: 550px ; opacity: 0.6;" src="/images/home2.jpg" alt="Second slide">
       </div>
-      <div class="container" style="position:absolute; left:8%; top:74%; width:100%;">
+      <div class="container" style="position:absolute; left:8%; top:70%; width:100%;">
         <div class="carousel-caption">
-          <h2 style="color:#242124; font-family:Verdana;">Find and Locate Potential Property here in Zamboanga</h2>
+          <h2>Find Potential Property here in Zamboanga</h2>
           <br>
           <form class="" action="/list/search" method="GET">  
 
@@ -37,11 +37,14 @@
                   @endforeach
               </select>
             </div>
+
           <div class="row">
-                 <select class="form-control col-md-4 font-weight-bold" name="type">
+                  <select class="form-control col-md-4 font-weight-bold" name="type">
                     <option value="" selected disabled>Select Property Type</option>
                     <option value="Commercial Space">Commercial Space</option>
+                    <option value="Room">Room</option>  
                     <option value="Lot">Lot</option>
+                    <option value="House">House</option>
                     <option value="House and Lot">House and Lot</option>
                     <option value="Apartment">Apartment</option>
                   </select> 
@@ -98,7 +101,7 @@
                   </select>  
              </div>  
              <br>             
-                <button type="submit" class="btn btn-dark col-md-12">Search</button>
+                <button type="submit" class="col-md-12">SEARCH</button>
           </form>
         </div>
       </div>

@@ -13,8 +13,10 @@ class CommercialSpaceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {      
+
+        $barangays = Barangay::all();
+        return view('pages.index')->with('barangays', $barangays);//
         //$s = $request->input('s');
         //return view('admin.commercialspacesearch');
     }
@@ -41,9 +43,9 @@ class CommercialSpaceController extends Controller
         //
         $this->validate($request, [
             'email' => 'required|email|max:255',
-            'image1' => 'image|nullable|max:6144',
-            'image2' => 'image|nullable|max:6144',
-            'image3' => 'image|nullable|max:6144'
+            'image1' => 'image|nullable|max:9999',
+            'image2' => 'image|nullable|max:9999',
+            'image3' => 'image|nullable|max:9999'
         ]);
 
         // Handle file upload

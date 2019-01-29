@@ -1,4 +1,4 @@
-    <nav style="background-color: #131f28" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav style="background-color: #131f28 " class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="/images/epwesto_logo.png" height="40">
@@ -12,41 +12,22 @@
                 <ul class="navbar-nav mr-auto">
             @guest 
                 <li class="nav-item">
-                      <a class="nav-link" href="/about">About Us</a>
+                      <a style="color:#c9d700" class="nav-link mx-6" href="/about">About Us</a>
                 </li>
                 <li class="nav-item">
-                      <a class="nav-link" href="/contact">Contact Us</a>
+                      <a style="color:#c9d700"  class="nav-link mx-6" href="/contact">Contact Us</a>
                 </li>
             @else
+
+
+
+
+             <!-- Navbar of The ADMINISTRATOR -->
+
                 @if(Auth::user()->admin == 1)
                     <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Properties
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/home/createspace">Add New Property</a>
-                            <a class="dropdown-item" href="/list/search">Property Listings</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Account
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/home/registerowner">Register Owner Account</a>
-                            <a class="dropdown-item" href="/home/accountlist">Account List</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
-                    </li>
-                @elseif(Auth::user()->admin == 2)
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Commercial Space
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/home/createspace">Add New Property</a>
@@ -54,39 +35,71 @@
                             <a class="dropdown-item" href="/home/ownerlist">My Registered Properties</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dashboard <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span>
+
+                      <li class="nav-item">
+                       <a style="color:#c9d700" class="nav-link" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
+                    </li>
+                    
+                    <li class="nav-item dropdown active">
+                        <a  style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Account
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>
-                            <a class="dropdown-item" href="/home/account">My Account</a>
+                            <a class="dropdown-item" href="/home/registerowner">Register Owner Account</a>
+                            <a class="dropdown-item" href="/home/accountlist">Account List</a>
                         </div>
                     </li>
+                    <!-- <li class="nav-item">
+                  <a style="color:#c9d700" class="nav-link" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a style="color:#c9d700" class="nav-link" href="/contact">Contact Us</a>
+                </li> -->
+
+                <!-- Navbar of The OWNER -->
+
+                @elseif(Auth::user()->admin == 2)
+                    <li class="nav-item dropdown">
+                        <a  style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Properties
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/home/createspace">Add New Property</a>
+                            <a class="dropdown-item" href="/list/search">Property Listings</a>
+                            <a class="dropdown-item" href="/home/ownerlist">My Listed Property </a>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
+                       <a style="color:#c9d700" class="nav-link" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
+                    </li>
+
+                   <!--  <li class="nav-item">
+                        <a style="color:#c9d700" class="nav-link" href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
-                    </li>
+                        <a style="color:#c9d700" class="nav-link" href="/contact">Contact Us</a>
+                    </li> -->
+
+                     <!-- -------------------------------- Navbar of The USER----------------------------------- -->
                 @elseif(Auth::user()->admin == 0)
                     <li class="nav-item">
-                        <a class="nav-link" href="/list/search">Properties</a>
+                        <a style="color:#c9d700" class="nav-link" href="/list/search">Properties</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a  style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dashboard <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>
+                            <a style="color:#c9d700" class="dropdown-item" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>
                             <a class="dropdown-item" href="/home/account">My Account</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
+                        <a style="color:#c9d700" class="nav-link" href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <a style="color:#c9d700" class="nav-link" href="/contact">Contact Us</a>
                     </li>
                 @endif
             @endguest
@@ -99,26 +112,33 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a style="color:#c9d700" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a style="color:#c9d700" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a style="color:#c9d700" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->firstname }} {{ Auth::user()->lastname }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="/home/account">My Account</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
+                           
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
+
+
+
                             </form>
                         </div>
                     </li>

@@ -1,20 +1,20 @@
 @extends('admin.admin-layouts.app')
-
 @section('content') 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwG2FvuLOl_rGjp4LHR6XSeLIG_ZjjJ0M&callback=initMap&libraries=places"></script>
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100 img-fluid" style="height: 600px; opacity: 0.6;" src="/images/home2.jpg" alt="First slide">
+        <img class="d-block w-100 img-fluid" style="height: 500px; opacity: 0.6;" src="/images/home2.jpg" alt="First slide">
       </div>
 
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" style="height: 600px ; opacity: 0.6;" src="/images/ZamboangaCity.jpg" alt="Second slide">
+        <img class="d-block w-100 img-fluid" style="height: 500px ; opacity: 0.6;" src="/images/ZamboangaCity.jpg" alt="Second slide">
       </div>
 
 
-      <div class="container" style="position:absolute; left:8%; top:75%; width:100%;">
+      <div class="container" style="position:absolute; left:8%; top:70%; width:100%;">
         <div class="carousel-caption">
+       
           <h2 style="color:#242124; font-family:Verdana;">Find and Locate commercial spaces in Zamboanga City</h2>
           <br>
         <form class="" action="/list/search" method="GET">  
@@ -53,14 +53,14 @@
                   <option value="Zambowood">Zambowood</option>
               </select>
             </div>
-
-          <div class="row">
-           
-                
-                 <select class="form-control col-md-4 font-weight-bold" name="type">
+          
+            <div class="row">
+                  <select class="form-control col-md-4 font-weight-bold" name="type">
                     <option value="" selected disabled>Select Property Type</option>
                     <option value="Commercial Space">Commercial Space</option>
+                    <option value="Room">Room</option>  
                     <option value="Lot">Lot</option>
+                    <option value="House">House</option>
                     <option value="House and Lot">House and Lot</option>
                     <option value="Apartment">Apartment</option>
                   </select> 

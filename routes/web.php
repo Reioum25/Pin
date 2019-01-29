@@ -16,6 +16,7 @@ use App\User;
 use App\Comment;
 use App\Appointment;
 use App\Rent;
+use App\Barangay;
 
 
 Route::get('/', 'PagesController@index');
@@ -110,7 +111,9 @@ Route::group(['middleware' => ['web','auth', 'verified']], function()
             
         }elseif(Auth::user()->admin == 1)
         {
-
+            $owner_id = auth()->user()->id;
+            $commercialspace = CommercialSpace::orderBy('id', 'desc')->get();
+            return view('admin.adminspacelist', compact('owner_id'))->with('commercialspace', $commercialspace);
         }elseif(Auth::user()->admin == 2)
         {
             $owner_id = auth()->user()->id;
@@ -164,6 +167,8 @@ Route::group(['middleware' => ['web','auth', 'verified']], function()
 
         }elseif(Auth::user()->admin == 1)
         {
+            $user = User::find(auth()->user()->id);
+            return view('admin.adminaccount')->with('user', $user);
 
         }elseif(Auth::user()->admin == 2)
         {
@@ -264,6 +269,8 @@ Route::group(['middleware' => ['web','auth', 'verified']], function()
             
         }elseif(Auth::user()->admin == 1)
         {
+            $appointment = Appointment::orderBy('id', 'asc')->get();
+            return view('admin.adminappointment')->with('appointment', $appointment);
             
         }elseif(Auth::user()->admin == 2)
         {

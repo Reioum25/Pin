@@ -1,5 +1,5 @@
-@extends('owner.owner-layouts.app')
-@section('content')
+@extends('admin.admin-layouts.app')
+@section('content') 
 <div class="container" style="padding-top: 50px; padding-bottom: 200px;">
     <section class="jumbotron text-center">
             <div class="container">

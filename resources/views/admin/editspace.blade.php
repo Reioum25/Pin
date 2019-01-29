@@ -6,28 +6,66 @@
         <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header font-weight-bold">{{ __('Edit Commercial Space') }}</div>
+                        <div class="card-header font-weight-bold">{{ __('Edit Property Details') }}</div>
         
                         <div class="card-body">
                             {!! Form::open(['action' => ['CommercialSpaceController@update', $commercialspace->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                            <div class="form-group font-weight-bold">
-                                {{Form::label('namespace', 'Commercial Space Name')}}
-                                {{Form::text('namespace', $commercialspace->space_name, ['class' => 'form-control', 'placeholder' => 'Enter Space Name', 'required'])}} 
+
+
+                               <!--  PROPERTY CATEGORY -->
+                             <div class="form-row">
+                               <div class="form-group font-weight-bold col-md-6">
+                                    {{Form::label('Property_category', 'Property Category')}}
+                                        {{Form::select('Property_category', [ 
+                                        'For Rent' => 'For Rent',                              
+                                        'For Sale' => 'For Sale',
+                                        'For Lease' => 'For Lease'],  $commercialspace->p_category,
+                                        ['class' => 'form-control col-md-6']) }}
+                               </div>
+
+                                 <!--  PROPERTY TYPE -->
+                               <div class="form-group font-weight-bold col-md-6">
+                                        {{Form::label('Property_type', 'Property Type')}}
+                                        {{Form::select('Property_type', [ 
+                                        'Commercial Space' => 'Commercial Space',                              
+                                        'Room' => 'Room',
+                                        'Lot' => 'Lot',
+                                        'House' => 'House',
+                                        'House and Lot' => 'House and Lot',
+                                        'Apartment' => 'Apartment'],  $commercialspace->p_type,
+                                        ['class' => 'form-control col-md-6']) }}
+                                </div>
                             </div>
+
+
+                            <!--  PROPERTY NAME -->
+
                             <div class="form-group font-weight-bold">
-                                {{Form::label('aboutspace', 'About the Space')}}
+                                {{Form::label('namespace', 'Property Name')}}
+                                {{Form::text('namespace', $commercialspace->space_name, ['class' => 'form-control', 'placeholder' => 'Enter Property Name', 'required'])}} 
+                            </div>
+
+                             <!--  ABOUT THE PROPERTY -->
+                            <div class="form-group font-weight-bold">
+                                {{Form::label('aboutspace', 'About the Property')}}
                                 {{Form::textarea('aboutspace', $commercialspace->about_space, ['class' => 'form-control', 'rows' =>'3', 'placeholder' => 'Description', 'required'])}}
                             </div>
+
+                            <!--   PROPERTY SIZE -->
                             <div class="form-row">
                                 <div class="form-group font-weight-bold col-md-6">
                                     {{Form::label('sqm', 'Square Meter')}}
                                     {{Form::text('sqm', $commercialspace->sqm, ['class' => 'form-control', 'placeholder' => 'sqm', 'required'])}}
                                 </div>
+
+                                 <!--   PROPERTY BATHROOM -->
                                 <div class="form-group font-weight-bold col-md-6">
                                     {{Form::label('cr', 'Bathroom/s')}}
                                     {{Form::text('cr', $commercialspace->cr, ['class' => 'form-control', 'placeholder' => 'Number of bathroom', 'required'])}}
                                 </div>
                             </div>
+
+                              <!-- PROPERTY BARANGAY LOCATION -->
                             <div class="form-group font-weight-bold">
                                 {{Form::label('location', 'Location (Zamboanga City)')}}
                                 <div class="form-inline">
@@ -52,13 +90,19 @@
                                     'Talon-Talon' => 'Talon-Talon', 
                                     'Tetuan' => 'Tetuan',
                                     'Tugbungan' => 'Tugbungan',
-                                    'Zambowood' => 'Zambowood'], $commercialspace->barangay, ['class' => 'form-control col-md-6', 'placeholder' => 'Select Barangay...', 'required']) }}
+                                    'Zambowood' => 'Zambowood'], $commercialspace->barangay,
+                                     ['class' => 'form-control col-md-6', 'placeholder' => 'Select Barangay...', 'required']) }}
+
+                                <!--   PROPERTY STREET -->
                                     {{Form::text('street', $commercialspace->street, ['class' => 'form-control col-md-6', 'placeholder' => 'Street/Drive', 'required'])}}
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div style="width: 100%; height: 150px;" id="map"></div>
                             </div>
+
+                            
                             <div class="form-row">
                                 <div class="form-group font-weight-bold col-md-6">
                                     {{Form::label('lat', 'Latitude')}}

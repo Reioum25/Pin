@@ -21,6 +21,7 @@
                                 <div class="form-group">
                                     <label for="">Barangay</label>
                                     <select class="form-control" name="s">
+
                                         <option value="Any" selected="selected">Anywhere in Zamboanga</option>
                                         <optgroup label="West Coast"></optgroup>
                                         @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
@@ -30,14 +31,17 @@
                                         @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
                                             <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
                                         @endforeach
+
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                 <div class="form-group">
                                     <label for="">Property Type</label>
                                     <select class="form-control" name="type">
                                         <option value="" selected disabled>Select Property Type</option>
                                         <option value="Commercial Space" {{ (old('type') == 'Commercial Space') ? "selected='selected'" : "" }}>Commercial Space</option>
+                                        <option value="Room" {{ (old('type') == 'Room') ? "selected='selected'" : "" }}>Room</option>
                                         <option value="Lot" {{ (old('type') == 'Lot') ? "selected='selected'" : "" }}>Lot</option>
+                                        <option value="House" {{ (old('type') == 'House') ? "selected='selected'" : "" }}>House</option>
                                         <option value="House and Lot" {{ (old('type') == 'House and Lot') ? "selected='selected'" : "" }}>House and Lot</option>
                                         <option value="Apartment" {{ (old('type') == 'Apartment') ? "selected='selected'" : "" }}>Apartment</option>
                                     </select> 

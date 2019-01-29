@@ -6,21 +6,52 @@
     <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header font-weight-bold">{{ __('Register Commercial Space') }}</div>
+                    <div class="card-header font-weight-bold">{{ __('List Your Property') }}</div>
     
                     <div class="card-body">
                         {!! Form::open(['action' => 'CommercialSpaceController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+
+
+
+                                  <!--  PROPERTY CATEGORY -->
+                           <div class="form-row">
+                               <div class="form-group font-weight-bold col-md-6">
+                                    {{Form::label('Property_category', 'Property Category')}}
+                                        {{Form::select('Property_category', [ 
+                                        'For Rent' => 'For Rent',                              
+                                        'For Sale' => 'For Sale',
+                                        'For Lease' => 'For Lease'], null, ['class' => 'form-control col-md-6']) }}
+                               </div>
+                                     <!--  PROPERTY TYPE -->
+                               <div class="form-group font-weight-bold col-md-6">
+                                        {{Form::label('Property_type', 'Property Type')}}
+                                        {{Form::select('Property_type', [ 
+                                        'Commercial Space' => 'Commercial Space',                              
+                                        'Room' => 'Room',
+                                        'Lot' => 'Lot',
+                                        'House' => 'House',
+                                        'House and Lot' => 'House and Lot',
+                                        'Apartment' => 'Apartment'], null, ['class' => 'form-control col-md-6']) }}
+                                </div>
+                            </div>
+
+                       <!--  PROPERTY NAME -->
+
                         <div class="form-group font-weight-bold">
-                            {{Form::label('namespace', 'Commercial Space Name')}}
-                            {{Form::text('namespace', '', ['class' => 'form-control', 'placeholder' => 'Enter Space Name', 'required'])}} 
+                            {{Form::label('namespace', 'Property Name')}}
+                            {{Form::text('namespace', '', ['class' => 'form-control', 'placeholder' => 'Enter Property Name', 'required'])}} 
                         </div>
+
+                       <!--  ABOUT THE PROPERTY -->
                         <div class="form-group font-weight-bold">
-                            {{Form::label('aboutspace', 'About the Space')}}
+                            {{Form::label('aboutspace', 'About the Property')}}
                             {{Form::textarea('aboutspace', '', ['class' => 'form-control', 'rows' =>'3', 'placeholder' => 'Description', 'required'])}}
                         </div>
+
+                          <!--   SIZE AND BATHROOM -->
                         <div class="form-row">
                             <div class="form-group font-weight-bold col-md-6">
-                                {{Form::label('sqm', 'Square Meter')}}
+                                {{Form::label('sqm', 'Area (Square Meter)')}}
                                 {{Form::text('sqm', '', ['class' => 'form-control', 'placeholder' => 'sqm', 'required'])}}
                             </div>
                             <div class="form-group font-weight-bold col-md-6">
@@ -28,6 +59,14 @@
                                 {{Form::text('cr', '', ['class' => 'form-control', 'placeholder' => 'Number of bathroom', 'required'])}}
                             </div>
                         </div>
+
+                        <!--  QUANITY OF PROPERTY TO SAVE -->
+                        <div class="form-group font-weight-bold">
+                            {{Form::label('Quantity', 'Quantity')}}
+                            {{Form::text('qty', '', ['class' => 'form-control', 'placeholder' => 'Number of property to Save', 'required'])}}
+                        </div> 
+
+                            <!-- LOCATION -->
                         <div class="form-group font-weight-bold">
                             {{Form::label('location', 'Location (Zamboanga City)')}}
                             <div class="form-inline">
@@ -41,7 +80,6 @@
                                 'Guiwan' => 'Guiwan', 
                                 'Mercedes' => 'Mercedes', 
                                 'Pasonanca' => 'Pasonanca',
-                                'Pueblo' => 'Pueblo',
                                 'Putik' => 'Putik',
                                 'Recodo' => 'Recodo',
                                 'San Roque' => 'San Roque',
@@ -54,6 +92,7 @@
                                 'Tetuan' => 'Tetuan',
                                 'Tugbungan' => 'Tugbungan',
                                 'Zambowood' => 'Zambowood'], null, ['class' => 'form-control col-md-6']) }}
+
                                 {{Form::text('street', '', ['class' => 'form-control col-md-6', 'placeholder' => 'Street/Drive', 'required'])}}
                             </div>
                         </div>
@@ -79,7 +118,7 @@
                         </div>
                         <div class="form-group font-weight-bold">
                             {{Form::label('name', 'Owner Name')}}
-                            {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name', 'required'])}}
+                            {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name to Display', 'required'])}}
                         </div>
                         <div class="form-group font-weight-bold">
                             {{Form::label('email', 'Email')}}
@@ -113,7 +152,9 @@
                             {{Form::file('image2', ['class' => 'form-control'])}}
                             {{Form::file('image3', ['class' => 'form-control'])}}
                         </div>
-                        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                        {{Form::submit('Submit', ['class' => 'btn btn-primary', 'col-md-6'])}}
+
+
                         {!! Form::close() !!}
                     </div>
                 </div>

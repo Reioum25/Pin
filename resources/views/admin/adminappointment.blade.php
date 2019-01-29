@@ -1,7 +1,5 @@
-@extends('owner.owner-layouts.app')
-@section('content')
-
-
+@extends('admin.admin-layouts.app')
+@section('content') 
 <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -368,7 +366,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="font-family: Century Gothic; font-size: 20px">Cancelled Appointment</div>
+                    <div class="card-header" style="font-family: Century Gothic; font-size: 20px">Canceled Appointment</div>
             
                     <div class="card-body">
                         <table class="table">
