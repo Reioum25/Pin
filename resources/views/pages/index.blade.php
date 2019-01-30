@@ -17,15 +17,15 @@
           <br>
           <form class="" action="/list/search" method="GET">  
 
-            <div class="row">        
-              <select class="form-control col-md-4 font-weight-bold" name="cat">
+            <div style="margin-bottom: 2px; display: flex;">        
+              <select style="border-radius: 0px; border-width: 0px; margin-right: 1px; height: 50px;" class="form-control col-md-4 font-weight-bold" name="cat">
                 <option value="">Any</option>
                 <option value="For Rent">For Rent</option>
                 <option value="For Sale">For Sale</option>
                 <option value="For Lease">For Lease</option>
               </select>  
 
-              <select class="form-control col-md-8  font-weight-bold" name="s">
+              <select style="border-radius: 0px; border-width: 0px; margin-left: 1px; height: 50px;" class="form-control col-md-8  font-weight-bold" name="s">
                   <option value="Any" selected="selected">Anywhere in Zamboanga</option>
                   <optgroup label="West Coast"></optgroup>
                   @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
@@ -38,8 +38,8 @@
               </select>
             </div>
 
-          <div class="row">
-                  <select class="form-control col-md-4 font-weight-bold" name="type">
+          <div style="display: flex;">
+                  <select style="border-radius: 0px; border-width: 0px; height: 50px;" class="form-control col-md-4 font-weight-bold" name="type">
                     <option value="" selected disabled>Select Property Type</option>
                     <option value="Commercial Space">Commercial Space</option>
                     <option value="Room">Room</option>  
@@ -50,7 +50,7 @@
                   </select> 
 
 
-                  <select class="form-control col-md-4 font-weight-bold" name="min_price">
+                  <select style="border-radius: 0px; border-width: 0px; margin: 0px 2px; height: 50px;" class="form-control col-md-4 font-weight-bold" name="min_price">
                     <option value="null" selected disabled>Minimum Price</option>
                     <option value="1">From Any</option>
                     <option value="5000">PHP 5,000</option>
@@ -75,7 +75,7 @@
                     <option value="20000001">PHP 20,000,000 +</option>
                   </select>
 
-                  <select class="form-control col-md-4 font-weight-bold" name="max_price">
+                  <select style="border-radius: 0px; border-width: 0px; height: 50px;" class="form-control col-md-4 font-weight-bold" name="max_price">
                     <option value="null" selected disabled>Maximum Price</option>
                     <option value="1">To Any</option>
                     <option value="5000">PHP 5,000</option>
