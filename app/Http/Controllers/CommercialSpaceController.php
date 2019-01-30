@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CommercialSpace;
+use App\Barangay;
 
 class CommercialSpaceController extends Controller
 {
@@ -18,7 +19,7 @@ class CommercialSpaceController extends Controller
         $barangays = Barangay::all();
         return view('pages.index')->with('barangays', $barangays);//
         //$s = $request->input('s');
-        //return view('admin.commercialspacesearch');
+        // return view('admin.commercialspacesearch');
     }
 
     /**
@@ -40,7 +41,7 @@ class CommercialSpaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO
         $this->validate($request, [
             'email' => 'required|email|max:255',
             'image1' => 'image|nullable|max:9999',
@@ -114,7 +115,10 @@ class CommercialSpaceController extends Controller
             $commercialspace->about_space = $request->input('aboutspace');
             $commercialspace->sqm = $request->input('sqm');
             $commercialspace->cr = $request->input('cr');
-            $commercialspace->barangay = $request->input('barangay');
+
+            // $commercialspace->barangay = $request->input('barangay');
+            $commercialspace->barangay = Barangay::where('name', $request->barangay)->first()->id;
+
             $commercialspace->street = $request->input('street');
             $commercialspace->latitude = $request->input('lat');
             $commercialspace->longitude = $request->input('lng');

@@ -16,23 +16,58 @@
                                   <!--  PROPERTY CATEGORY -->
                            <div class="form-row">
                                <div class="form-group font-weight-bold col-md-6">
-                                    {{Form::label('Property_category', 'Property Category')}}
-                                        {{Form::select('Property_category', [ 
-                                        'For Rent' => 'For Rent',                              
-                                        'For Sale' => 'For Sale',
-                                        'For Lease' => 'For Lease'], null, ['class' => 'form-control col-md-6']) }}
+                                    <label for="">Property Category</label>
+                                    <select name="Property_category" id="property-cat" class="form-control">
+                                        <option value="For Rent">For Rent</option>
+                                        <option value="For Sale">For Sale</option>
+                                        <option value="For Lease">For Lease</option>
+                                    </select>
                                </div>
-                                     <!--  PROPERTY TYPE -->
-                               <div class="form-group font-weight-bold col-md-6">
-                                        {{Form::label('Property_type', 'Property Type')}}
-                                        {{Form::select('Property_type', [ 
-                                        'Commercial Space' => 'Commercial Space',                              
-                                        'Room' => 'Room',
-                                        'Lot' => 'Lot',
-                                        'House' => 'House',
-                                        'House and Lot' => 'House and Lot',
-                                        'Apartment' => 'Apartment'], null, ['class' => 'form-control col-md-6']) }}
+                                <!--  PROPERTY TYPE -->
+                                
+                                <!-- ALL
+                                    <div class="form-group font-weight-bold col-md-6">
+                                        <label for="">Property Type</label>
+                                        <select name="Property_type" id="property-type" class="form-control">
+                                            <option value="Commercial Space">Commercial Space</option>
+                                            <option value="Room">Room</option>
+                                            <option value="Lot">Lot</option>
+                                            <option value="House">House</option>
+                                            <option value="House and Lot">House and Lot</option>
+                                            <option value="Apartment">Apartment</option>
+                                        </select>
+                                    </div>
+                                -->
+
+                                <!-- FOR RENT ONLY -->
+                                <div class="form-group font-weight-bold col-md-6" id="prp-type-rent">
+                                   <label for="">Property Type</label>
+                                   <select name="property_type-rent" id="property-type-rent" class="form-control">
+                                       <option value="Commercial Space">Commercial Space</option>
+                                       <option value="Room">Room</option>
+                                       <option value="House">House</option>
+                                       <option value="Apartment">Apartment</option>
+                                   </select>
                                 </div>
+                                <!-- FOR SALE ONLY -->
+                                <div class="form-group font-weight-bold col-md-6 d-none" id="prp-type-sale">
+                                   <label for="">Property Type</label>
+                                   <select name="property_type-sale" id="property-type-sale" class="form-control">
+                                       <option value="Lot">Lot</option>
+                                       <option value="House">House</option>
+                                       <option value="House and Lot">House and Lot</option>
+                                       <option value="Apartment">Apartment</option>
+                                   </select>
+                                </div>
+                                <!-- FOR LEASE -->
+                               <div class="form-group font-weight-bold col-md-6 d-none" id="prp-type-lease">
+                                    <label for="">Property Type</label>
+                                    <select name="property_type-lease" id="property-type-lease" class="form-control">
+                                        <option value="Commercial Space">Commercial Space</option>
+                                        <option value="Lot">Lot</option>
+                                    </select>
+                                </div>
+                                
                             </div>
 
                        <!--  PROPERTY NAME -->
@@ -62,39 +97,24 @@
 
                         <!--  QUANITY OF PROPERTY TO SAVE -->
                         <div class="form-group font-weight-bold">
-                            {{Form::label('Quantity', 'Quantity')}}
-                            {{Form::text('qty', '', ['class' => 'form-control', 'placeholder' => 'Number of property to Save', 'required'])}}
+                            <label for="">Quantity</label>
+                            <input type="text" name="qty" id="qty" placeholder="# of properties to save" class="form-control">
                         </div> 
 
                             <!-- LOCATION -->
                         <div class="form-group font-weight-bold">
-                            {{Form::label('location', 'Location (Zamboanga City)')}}
-                            <div class="form-inline">
-                                {{Form::select('barangay', [ 
-                                'Ayala' => 'Ayala', 
-                                'Baliwasan' => 'Baliwasan', 
-                                'Boalan' => 'Boalan', 
-                                'Camino Nuevo' => 'Camino Nuevo', 
-                                'Canelar' => 'Canelar', 
-                                'Divisoria' => 'Divisoria', 
-                                'Guiwan' => 'Guiwan', 
-                                'Mercedes' => 'Mercedes', 
-                                'Pasonanca' => 'Pasonanca',
-                                'Putik' => 'Putik',
-                                'Recodo' => 'Recodo',
-                                'San Roque' => 'San Roque',
-                                'San Jose Gusu' => 'San Jose Gusu',
-                                'Sta. Barbara' => 'Sta. Barbara',
-                                'Sta. Catalina' => 'Sta. Catalina',
-                                'Sta. Maria' => 'Sta. Maria',
-                                'Suterville' => 'Suterville',
-                                'Talon-Talon' => 'Talon-Talon', 
-                                'Tetuan' => 'Tetuan',
-                                'Tugbungan' => 'Tugbungan',
-                                'Zambowood' => 'Zambowood'], null, ['class' => 'form-control col-md-6']) }}
+                            <label for="">Location (in Zamboanga City)</label>
+                            <select class="form-control" name="s">
+                                <optgroup label="West Coast"></optgroup>
+                                @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
+                                    <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                @endforeach
+                                <optgroup label="East Coast">East Coast</optgroup>
+                                @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
+                                    <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                @endforeach
 
-                                {{Form::text('street', '', ['class' => 'form-control col-md-6', 'placeholder' => 'Street/Drive', 'required'])}}
-                            </div>
+                            </select>
                         </div>
                         <div class="form-group font-weight-bold">
                             {{Form::label('searchmap', 'Map')}}
@@ -163,7 +183,6 @@
 </div>
 
 <script>
-
     function initMap()
     {
         var myLatlng = new google.maps.LatLng(6.913594,122.061373);
@@ -209,7 +228,65 @@
             $('#lng').val(lng);
         });
     }
+</script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+    $("#property-cat").change(function (){
+        $("#prp-type-rent").removeClass('d-none');
+        $("#prp-type-sale").removeClass('d-none');
+        $("#prp-type-lease").removeClass('d-none');
 
+        if($("#property-cat").val() === 'For Rent')
+        {
+            $("#prp-type-rent").removeClass('d-none');
+            $("#prp-type-sale").addClass('d-none');
+            $("#prp-type-lease").addClass('d-none');
+        }
+        else if($("#property-cat").val() === 'For Sale')
+        {
+            $("#prp-type-sale").removeClass('d-none');
+            $("#prp-type-rent").addClass('d-none');
+            $("#prp-type-lease").addClass('d-none');
+        }
+        else if($("#property-cat").val() === 'For Lease')
+        {
+            $("#prp-type-lease").removeClass('d-none');
+            $("#prp-type-rent").addClass('d-none');
+            $("#prp-type-sale").addClass('d-none');
+        }
+    });
+
+    $("#property-type-rent").change(function (){
+        if($("#property-type-rent").val() === 'Lot' || $("#property-type-rent").val() === 'House and Lot' || $("#property-type-rent").val() === 'Apartment' || $("#property-type-rent").val() === 'House'){
+            $("#qty").val(1);
+            $("#qty").prop('disabled', true);
+        }
+        else
+        {
+            $("#qty").prop('disabled', false);
+        }
+    });
+    $("#property-type-sale").change(function (){
+        if($("#property-type-sale").val() === 'Lot' || $("#property-type-sale").val() === 'House and Lot' || $("#property-type-sale").val() === 'Apartment' || $("#property-type-sale").val() === 'House'){
+            $("#qty").val(1);
+            $("#qty").prop('disabled', true);
+        }
+        else
+        {
+            $("#qty").prop('disabled', false);
+        }
+    });
+    $("#property-type-lease").change(function (){
+        if($("#property-type-lease").val() === 'Lot' || $("#property-type-lease").val() === 'House and Lot' || $("#property-type-lease").val() === 'Apartment' || $("#property-type-lease").val() === 'House'){
+            $("#qty").val(1);
+            $("#qty").prop('disabled', true);
+        }
+        else
+        {
+            $("#qty").prop('disabled', false);
+        }
+    });
+    
 
 
 </script>
