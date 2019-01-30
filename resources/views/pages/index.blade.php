@@ -6,12 +6,12 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100 img-fluid" style="height: 550px; opacity: 0.6;" src="/images/ZamboangaCity.jpg" alt="First slide">
+        <img class="d-block w-100 img-fluid" style="height: 550px; opacity: 0.6;" src="/images/home2.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" style="height: 550px ; opacity: 0.6;" src="/images/home2.jpg" alt="Second slide">
+        <img class="d-block w-100 img-fluid" style="height: 550px ; opacity: 0.6;" src="/images/ZamboangaCity.jpg" alt="Second slide">
       </div>
-      <div class="container" style="position:absolute; left:8%; top:70%; width:100%;">
+      <div class="container" style="position:absolute; left:8%; top:65%; width:100%;">
         <div class="carousel-caption">
           <h2>Find Potential Property here in Zamboanga</h2>
           <br>

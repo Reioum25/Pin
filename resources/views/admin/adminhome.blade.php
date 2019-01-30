@@ -15,7 +15,7 @@
       <div class="container" style="position:absolute; left:8%; top:70%; width:100%;">
         <div class="carousel-caption">
        
-          <h2 style="color:#242124; font-family:Verdana;">Find and Locate commercial spaces in Zamboanga City</h2>
+          <h2>Find Potential Property here in Zamboanga</h2>
           <br>
         <form class="" action="/list/search" method="GET">  
 
@@ -117,7 +117,7 @@
                   </select>  
              </div>  
              <br>             
-                <button type="submit" class="btn btn-dark col-md-12">Search</button>
+                 <button type="submit" class="col-md-12">SEARCH</button>
           </form>
         </div>
       </div>
