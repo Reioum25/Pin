@@ -24,6 +24,7 @@
                        <a style="color:#c9d700" class="nav-link" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
                     </li>
 
+    
                   <!--   <li class="nav-item">
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
@@ -45,7 +46,7 @@
                     @else
                         <li class="nav-item dropdown">
 
-                           
+                            
 
                             <a style="color:#c9d700" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->firstname }} {{ Auth::user()->lastname }} <span class="caret"></span>

@@ -83,24 +83,21 @@
 
                      <!-- -------------------------------- Navbar of The USER----------------------------------- -->
                 @elseif(Auth::user()->admin == 0)
-                    <li class="nav-item">
-                        <a style="color:#c9d700" class="nav-link" href="/list/search">Properties</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a  style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dashboard <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span>
+                    
+                     <li class="nav-item dropdown active">
+                        <a style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Properties
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a style="color:#c9d700" class="dropdown-item" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>
-                            <a class="dropdown-item" href="/home/account">My Account</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">                       
+                            <a class="dropdown-item" href="/list/search">Property Listings</a>    
                         </div>
                     </li>
+
                     <li class="nav-item">
-                        <a style="color:#c9d700" class="nav-link" href="/about">About Us</a>
+                       <a style="color:#c9d700" class="nav-link" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
                     </li>
-                    <li class="nav-item">
-                        <a style="color:#c9d700" class="nav-link" href="/contact">Contact Us</a>
-                    </li>
+
+                    <a class="nav-link" style="color:#c9d700"  href="/">&nbsp;List Your Property</a>
                 @endif
             @endguest
                   

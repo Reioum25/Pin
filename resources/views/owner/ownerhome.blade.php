@@ -113,7 +113,7 @@
                   </select>  
              </div>  
              <br>             
-                <button type="submit" class="btn btn-dark col-md-12">Search</button>
+                 <button type="submit" class="col-md-12">SEARCH</button>
           </form>
         </div>
       </div>
