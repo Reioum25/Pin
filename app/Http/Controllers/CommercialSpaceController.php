@@ -42,11 +42,13 @@ class CommercialSpaceController extends Controller
     public function store(Request $request)
     {
         //TODO
+        // return $request;
         $this->validate($request, [
             'email' => 'required|email|max:255',
             'image1' => 'image|nullable|max:9999',
             'image2' => 'image|nullable|max:9999',
-            'image3' => 'image|nullable|max:9999'
+            'image3' => 'image|nullable|max:9999',
+            'qty' => 'required|integer|min:1',
         ]);
 
         // Handle file upload
@@ -102,6 +104,7 @@ class CommercialSpaceController extends Controller
         }
 
         $qty = $request->input('qty');
+        // dd($request);
 
         for ($i = 0; $i < $qty; $i++)
         {
@@ -109,7 +112,19 @@ class CommercialSpaceController extends Controller
             $commercialspace->owner_id = auth()->user()->id;
 
             $commercialspace->p_category = $request->input('Property_category');
-            $commercialspace->p_type = $request->input('Property_type');
+
+            switch($request->Property_category)
+            {
+                case "For Sale":
+                    $commercialspace->p_type = $request->input('property_type-sale');
+                    break;
+                case "For Rent":
+                    $commercialspace->p_type = $request->input('property_type-rent');
+                    break;
+                case "For Lease":
+                    $commercialspace->p_type = $request->input('property_type-lease');
+                    break;
+            }
 
             $commercialspace->space_name = $request->input('namespace');
             $commercialspace->about_space = $request->input('aboutspace');
@@ -117,7 +132,8 @@ class CommercialSpaceController extends Controller
             $commercialspace->cr = $request->input('cr');
 
             // $commercialspace->barangay = $request->input('barangay');
-            $commercialspace->barangay = Barangay::where('name', $request->barangay)->first()->id;
+            $commercialspace->barangay = Barangay::find($request->s)->id;
+            // dd(Barangay::find($request->s)->id);
 
             $commercialspace->street = $request->input('street');
             $commercialspace->latitude = $request->input('lat');
@@ -133,6 +149,8 @@ class CommercialSpaceController extends Controller
             $commercialspace->image1 = $fileNameToStore1;
             $commercialspace->image2 = $fileNameToStore2;
             $commercialspace->image3 = $fileNameToStore3;
+
+            // return $commercialspace;
             $commercialspace->save();
 
         }

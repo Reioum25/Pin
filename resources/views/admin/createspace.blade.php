@@ -1,20 +1,77 @@
 @extends('admin.admin-layouts.app')
 
 @section('content')
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwG2FvuLOl_rGjp4LHR6XSeLIG_ZjjJ0M&callback=initMap&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwG2FvuLOl_rGjp4LHR6XSeLIG_ZjjJ0M&callback=initMap&libraries=places"></script>
+<script>
+    function initMap()
+    {
+        var myLatlng = new google.maps.LatLng(6.913594,122.061373);
+        var mapOptions =
+        {
+            zoom: 18,
+            center: myLatlng,
+            scrollwheel:false
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            draggable: true
+        });
+
+        var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
+
+        google.maps.event.addListener(searchBox,'places_changed',function(){
+            
+            var places = searchBox.getPlaces();
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
+
+            for(i=0; place=places[i]; i++){
+                bounds.extend(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+
+            }
+
+            map.fitBounds(bounds);
+            map.setZoom(18);
+
+        });
+
+        google.maps.event.addListener(marker, 'position_changed', function(){
+
+            var lat = marker.getPosition().lat();
+            var lng = marker.getPosition().lng();
+
+            $('#lat').val(lat);
+            $('#lng').val(lng);
+        });
+    }
+</script>
 <div class="container" style="padding-top: 100px; padding-bottom: 100px;">
     <div class="row justify-content-center">
+            <div class="col-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header font-weight-bold">{{ __('List Your Property') }}</div>
     
                     <div class="card-body">
-                        {!! Form::open(['action' => 'CommercialSpaceController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-
-
-
-                                  <!--  PROPERTY CATEGORY -->
-                           <div class="form-row">
+                        {{-- {!! Form::open(['action' => 'CommercialSpaceController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!} --}}
+                        <form action="/home/createspace" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-row">
+                                <!--  PROPERTY CATEGORY -->
                                <div class="form-group font-weight-bold col-md-6">
                                     <label for="">Property Category</label>
                                     <select name="Property_category" id="property-cat" class="form-control">
@@ -98,23 +155,33 @@
                         <!--  QUANITY OF PROPERTY TO SAVE -->
                         <div class="form-group font-weight-bold">
                             <label for="">Quantity</label>
-                            <input type="text" name="qty" id="qty" placeholder="# of properties to save" class="form-control">
+                            <input type="number" name="qty" id="qty" placeholder="# of properties to save" class="form-control" min="1" required>
                         </div> 
 
                             <!-- LOCATION -->
                         <div class="form-group font-weight-bold">
-                            <label for="">Location (in Zamboanga City)</label>
-                            <select class="form-control" name="s">
-                                <optgroup label="West Coast"></optgroup>
-                                @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
-                                    <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
-                                @endforeach
-                                <optgroup label="East Coast">East Coast</optgroup>
-                                @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
-                                    <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
-                                @endforeach
-
-                            </select>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="">Location (in Zamboanga City)</label>
+                                    <select class="form-control" name="s">
+                                        <optgroup label="West Coast"></optgroup>
+                                        @foreach($barangays->where('district', 1)->sortBy('name') as $barangay)
+                                            <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                        @endforeach
+                                        <optgroup label="East Coast">East Coast</optgroup>
+                                        @foreach($barangays->where('district', 2)->sortBy('name') as $barangay)
+                                            <option value="{{ $barangay->id }}" {{ (old('s') == $barangay->id) ? "selected='selected'" : "" }}>{{ $barangay->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <label for="">Street/Drive</label>
+                                    <input type="text" class="form-control" name="street" placeholder="Street/Drive">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            
                         </div>
                         <div class="form-group font-weight-bold">
                             {{Form::label('searchmap', 'Map')}}
@@ -181,55 +248,8 @@
             </div>
         </div>
 </div>
-
-<script>
-    function initMap()
-    {
-        var myLatlng = new google.maps.LatLng(6.913594,122.061373);
-        var mapOptions =
-        {
-            zoom: 18,
-            center: myLatlng,
-            scrollwheel:false
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            draggable: true
-        });
-
-        var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-
-        google.maps.event.addListener(searchBox,'places_changed',function(){
-            
-            var places = searchBox.getPlaces();
-            var bounds = new google.maps.LatLngBounds();
-            var i, place;
-
-            for(i=0; place=places[i]; i++){
-                bounds.extend(place.geometry.location);
-                marker.setPosition(place.geometry.location);
-
-            }
-
-            map.fitBounds(bounds);
-            map.setZoom(18);
-
-        });
-
-        google.maps.event.addListener(marker, 'position_changed', function(){
-
-            var lat = marker.getPosition().lat();
-            var lng = marker.getPosition().lng();
-
-            $('#lat').val(lat);
-            $('#lng').val(lng);
-        });
-    }
-</script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script>initMap()</script>
 <script>
     $("#property-cat").change(function (){
         $("#prp-type-rent").removeClass('d-none');
