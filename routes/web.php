@@ -79,7 +79,9 @@ Route::group(['middleware' => [ 'web','auth', 'verified']], function()
 
         }elseif(Auth::user()->admin == 2)
         {
-            return view('owner.ownercreatespace');
+            $barangays = Barangay::all();
+            return view('owner.ownercreatespace')->with(['barangays' => $barangays]);
+
         }
     });
     
@@ -290,4 +292,6 @@ Route::group(['middleware' => [ 'web','auth', 'verified']], function()
     Route::get('/subscribers', 'SubscriptionController@getSubscribers')->name('admin.subscribe.list');
     Route::post('/subscribers', 'SubscriptionController@confirmSubscription')->name('admin.subscribe.accept');
     
+
+    Route::post('/home/createspace', 'CommercialSpaceController@store')->name('owner.space.create');
 });

@@ -179,9 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            
-                        </div>
+                       
                         <div class="form-group font-weight-bold">
                             {{Form::label('searchmap', 'Map')}}
                             {{Form::text('searchmap', '', ['class' => 'form-control', 'placeholder' => 'Search Location'])}}
