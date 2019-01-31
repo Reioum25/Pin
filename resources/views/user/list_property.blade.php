@@ -1,4 +1,4 @@
-@extends('admin.admin-layouts.app')
+@extends('user.user-layouts.app')
 
 @section('content')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwG2FvuLOl_rGjp4LHR6XSeLIG_ZjjJ0M&callback=initMap&libraries=places"></script>
