@@ -182,5 +182,17 @@ class SubscriptionController extends Controller
         return redirect()->route('user.subscribe.current');
     }
 
+    public function getSubscribers()
+    {
+        $subscribers = Subscription::with('user')->get();
+        // return $subscribers;
+        return view('admin.subscribers_list')->with(['subscribers' => $subscribers]);
+    }
+
+    public function confirmSubscription(Request $request)
+    {
+        Subscription::find($request->subscribe)->update(['isConfirmed' => true ]);
+        return redirect()->route('admin.subscribe.list');
+    }
 
 }

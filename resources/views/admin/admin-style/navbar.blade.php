@@ -34,6 +34,13 @@
                         <a  class="dropdown-item" href="/home/accountlist">Account List</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a style="color:#c9d700" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subscribers</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="{{ route('admin.subscribe.list') }}" class="dropdown-item">Subscriber's List</a>
+                    </div>
+                </li>
               <!--  <li class="nav-item">
                   <a style="color:#c9d700" class="nav-link mx-5" href="/about">About Us</a>
                 </li>

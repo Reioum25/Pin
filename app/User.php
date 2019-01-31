@@ -10,6 +10,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
+    protected $appends = ['full_name'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,4 +29,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->attributes['firstname']} {$this->attributes['lastname']}";
+    }
 }
