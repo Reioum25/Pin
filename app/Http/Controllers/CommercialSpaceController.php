@@ -102,7 +102,6 @@ class CommercialSpaceController extends Controller
         }
 
         $qty = $request->input('qty');
-        // dd($request);
 
         for ($i = 0; $i < $qty; $i++)
         {
@@ -153,8 +152,6 @@ class CommercialSpaceController extends Controller
 
         }
         return redirect('/home');
-
-
     }
 
     /**

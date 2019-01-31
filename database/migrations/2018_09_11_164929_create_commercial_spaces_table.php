@@ -37,6 +37,7 @@ class CreateCommercialSpacesTable extends Migration
             $table->string('image3');
             $table->string('p_category');
             $table->string('p_type');
+            $table->boolean('subscription')->default(true);
             $table->timestamps();
         });
     }

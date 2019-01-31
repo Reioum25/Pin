@@ -36,7 +36,6 @@
 
             map.fitBounds(bounds);
             map.setZoom(18);
-
         });
 
         google.maps.event.addListener(marker, 'position_changed', function(){
