@@ -32,11 +32,12 @@ class CreateCommercialSpacesTable extends Migration
             $table->string('price');
             $table->string('type');
             $table->string('status');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
             $table->string('p_category');
             $table->string('p_type');
+            $table->boolean('subscription')->default(true);
             $table->timestamps();
         });
     }

@@ -21,6 +21,17 @@ class TestSeeder extends Seeder
             'password' => Hash::make('password?'),
             'admin' => 1,
             'email_verified_at' => '2019-01-30 16:00:00',
+            'is_activated' => 1,
+        ]);
+        User::create([
+            'firstname' => 'Steve',
+            'lastname' => 'Jobs',
+            'email' => 'user@fin.test',
+            'phone' => '09000000000',
+            'password' => Hash::make('password?'),
+            'admin' => 0,
+            'email_verified_at' => '2019-01-30 16:00:00',
+            'is_activated' => 1,
         ]);
     }
 }

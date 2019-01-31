@@ -116,7 +116,7 @@
                         @foreach($commercialspaces as $commercial_space)
                             <div class="col-md-4 col-sm-12">
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" style="height: 250px" src="/storage/images/{{$commercial_space->image1}}"
+                                    <img class="card-img-top" style="height: 250px" src="{{$commercial_space->image1}}"
                                         alt="Card image cap">
                                     <div class="card-body">
                                         <blockquote class="blockquote">
