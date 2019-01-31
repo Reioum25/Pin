@@ -27,7 +27,7 @@
 </head>
 <body>
     @include('user.user-style.navbar')
-   <div id="app" style="padding-top: 66.22px;">
+    <div id="app" style="padding-top: 66.22px;">
         @yield('content')
     </div>
 
