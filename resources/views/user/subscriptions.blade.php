@@ -4,7 +4,7 @@
     <main>
         <div class="container mt-4 mb-4">
             <div class="row align-items-center">
-                <div class="col-md-9 col-sm-12">
+                <div class="col-12">
                     <h2>Current subscriptions</h2>
                     <table class="table">
                         <thead>
@@ -14,9 +14,19 @@
                                 <th>Date subscribed</th>
                                 <th>Until</th>
                                 <th>Receipt</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             @foreach($subscriptions as $sub)
                                 <tr>
                                     <td>{{ ($sub->isConfirmed) ? 'Confirmed' : 'Unconfimed' }}</td>
@@ -24,7 +34,18 @@
                                     <td>{{ $sub->subscribed }}</td>
                                     <td>{{ $sub->remaining }}</td>
                                     <td>
-                                        <a href="{{ $sub->receipt }}">View receipt</a>
+                                        @if(!is_null($sub->receipt))
+                                            <a href="{{ $sub->receipt }}">View receipt</a>
+                                        @else
+                                            NO RECEIPT
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if(is_null($sub->receipt))
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadReceiptModal" data-subid="{{$sub->id}}">
+                                                Add receipt
+                                            </button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -71,4 +92,41 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="uploadReceiptModal" tabindex="-1" role="dialog" aria-labelledby="uploadReceiptModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog model-dialog-centered" role="document">
+            <div class="modal-content">
+                <form action="{{ route('user.subscribe.upload') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="uploadReceiptModalLabel">Upload receipt</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="sub_id" id="sub_id" value="">
+                        <div class="form-group">
+                            <input type="file" class="form-control-file" name="receipt" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Upload receipt</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#uploadReceiptModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var sub_id = button.data('subid')
+            var modal = $(this)
+            modal.find('#sub_id').val(sub_id);
+        });
+    
+    </script>
 @endsection

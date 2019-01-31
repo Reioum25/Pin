@@ -285,6 +285,7 @@ Route::group(['middleware' => [ 'web','auth', 'verified']], function()
     Route::post('/subscribe', 'SubscriptionController@listPropertyDisabled')->name('user.subscribe.post');
     Route::get('/subscribe/current', 'SubscriptionController@getSubscription')->name('user.subscribe.current');
     Route::post('/subscribe/confirm', 'SubscriptionController@addSubscription')->name('user.subscribe.confirm');
+    Route::post('/subscribe/upload', 'SubscriptionController@uploadReceipt')->name('user.subscribe.upload');
 
     Route::get('/subscribers', 'SubscriptionController@getSubscribers')->name('admin.subscribe.list');
     Route::post('/subscribers', 'SubscriptionController@confirmSubscription')->name('admin.subscribe.accept');

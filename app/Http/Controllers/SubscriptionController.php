@@ -8,6 +8,7 @@ use App\CommercialSpace;
 use App\Subscription;
 use Auth;
 use Carbon\Carbon;
+use Cloudder;
 
 class SubscriptionController extends Controller
 {
@@ -193,6 +194,16 @@ class SubscriptionController extends Controller
     {
         Subscription::find($request->subscribe)->update(['isConfirmed' => true ]);
         return redirect()->route('admin.subscribe.list');
+    }
+
+    public function uploadReceipt(Request $request)
+    {
+        $this->validate($request, [
+            'receipt' => 'required|image',
+        ]);
+        Cloudder::upload($request->file('receipt')->path(), 'epwesto/receipts/' . uniqid());
+        Subscription::find($request->sub_id)->update(['receipt' => Cloudder::show(Cloudder::getPublicId()) ]);
+        return redirect()->route('user.subscribe.current');
     }
 
 }
