@@ -31,7 +31,7 @@ Auth::routes(['verify' => true]);
 Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
 
 
-Route::group(['middleware' => ['web','auth', 'verified']], function()
+Route::group(['middleware' => [ 'web','auth', 'verified']], function()
 {
     Route::resource('/home/createspace', 'CommercialSpaceController');
     Route::resource('/home/registerowner', 'AccountController');
@@ -281,7 +281,7 @@ Route::group(['middleware' => ['web','auth', 'verified']], function()
         }
     });
 
-    
+    Route::get('/subscribe', 'SubscriptionController@listProperty');
 
     
 });

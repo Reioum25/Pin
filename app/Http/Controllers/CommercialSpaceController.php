@@ -80,8 +80,6 @@ class CommercialSpaceController extends Controller
             $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
             // Upload image
             $path2 = $request->file('image2')->storeAs('public/images', $fileNameToStore2);
-
-
         } else {
             $fileNameToStore2 = 'noimage.jpg';
         }
