@@ -30,8 +30,8 @@
                       Account
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a  class="dropdown-item" href="/home/registerowner">Register Owner Account</a>
-                        <a  class="dropdown-item" href="/home/accountlist">Account List</a>
+                        <a class="dropdown-item" href="/home/registerowner">Register Owner Account</a>
+                        <a class="dropdown-item" href="/home/accountlist">Account List</a>
                     </div>
                 </li>
 
@@ -41,12 +41,6 @@
                         <a href="{{ route('admin.subscribe.list') }}" class="dropdown-item">Subscriber's List</a>
                     </div>
                 </li>
-              <!--  <li class="nav-item">
-                  <a style="color:#c9d700" class="nav-link mx-5" href="/about">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a style="color:#c9d700" class="nav-link" href="/contact">Contact Us</a>
-                </li> -->
               </ul>
 
             <!-- Right Side Of Navbar -->

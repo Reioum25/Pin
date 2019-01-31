@@ -159,7 +159,11 @@ class SubscriptionController extends Controller
 
     public function confirmSubscription(Request $request)
     {
-        Subscription::find($request->subscribe)->update(['isConfirmed' => true ]);
+        $sub = Subscription::find($request->subscribe);
+        $sub->update(['isConfirmed' => true ]);
+        $sub->user->admin = 2;
+        $sub->user->save();
+
         return redirect()->route('admin.subscribe.list');
     }
 
