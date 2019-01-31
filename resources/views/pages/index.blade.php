@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwG2FvuLOl_rGjp4LHR6XSeLIG_ZjjJ0M&callback=initMap&libraries=places"></script>
 
