@@ -74,7 +74,8 @@ Route::group(['middleware' => ['web','auth', 'verified']], function()
             
         }elseif(Auth::user()->admin == 1)
         {
-            return view('admin.createspace');
+            $barangays = Barangay::all();
+            return view('admin.createspace')->with(['barangays' => $barangays]);
 
         }elseif(Auth::user()->admin == 2)
         {
