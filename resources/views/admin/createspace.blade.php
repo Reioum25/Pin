@@ -154,7 +154,7 @@
                         <!--  QUANITY OF PROPERTY TO SAVE -->
                         <div class="form-group font-weight-bold">
                             <label for="">Quantity</label>
-                            <input type="number" name="qty" id="qty" placeholder="# of properties to save" class="form-control" min="1" required>
+                            <input type="number" name="qty" id="qty" placeholder="# of properties to save" class="form-control" min="1" value="1" required>
                         </div> 
 
                             <!-- LOCATION -->
@@ -234,9 +234,9 @@
                         </div>
                         <div class="form-group font-weight-bold">
                             {{Form::label('image', 'Images')}}
-                            {{Form::file('image1', ['class' => 'form-control'])}}
-                            {{Form::file('image2', ['class' => 'form-control'])}}
-                            {{Form::file('image3', ['class' => 'form-control'])}}
+                            <input type="file" name="image1" id="image1" class="form-control-file" accept="images/*">
+                            <input type="file" name="image2" id="image2" class="form-control-file" accept="images/*">
+                            <input type="file" name="image3" id="image3" class="form-control-file" accept="images/*">
                         </div>
                         {{Form::submit('Submit', ['class' => 'btn btn-primary', 'col-md-6'])}}
 

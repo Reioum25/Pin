@@ -10,13 +10,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="rounded mx-auto d-block" style="height: 550px;" src="/storage/images/{{$commercialspace->image1}}" alt="First slide">
+            <img class="rounded mx-auto d-block" style="height: 550px;" src="{{$commercialspace->image1}}" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="rounded mx-auto d-block" style="height: 550px;" src="/storage/images/{{$commercialspace->image2}}" alt="Second slide">
+            <img class="rounded mx-auto d-block" style="height: 550px;" src="{{$commercialspace->image2}}" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="rounded mx-auto d-block" style="height: 550px;" src="/storage/images/{{$commercialspace->image3}}" alt="Third slide">
+            <img class="rounded mx-auto d-block" style="height: 550px;" src="{{$commercialspace->image3}}" alt="Third slide">
           </div>
           
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
