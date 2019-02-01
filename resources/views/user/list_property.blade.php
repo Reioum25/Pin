@@ -277,27 +277,27 @@
         if ($("#property-type-rent").val() === 'Lot' || $("#property-type-rent").val() === 'House and Lot' || $(
                 "#property-type-rent").val() === 'Apartment' || $("#property-type-rent").val() === 'House') {
             $("#qty").val(1);
-            $("#qty").prop('disabled', true);
+            $("#qty").prop('readonly', true);
         } else {
-            $("#qty").prop('disabled', false);
+            $("#qty").prop('readonly', false);
         }
     });
     $("#property-type-sale").change(function () {
         if ($("#property-type-sale").val() === 'Lot' || $("#property-type-sale").val() === 'House and Lot' || $(
                 "#property-type-sale").val() === 'Apartment' || $("#property-type-sale").val() === 'House') {
             $("#qty").val(1);
-            $("#qty").prop('disabled', true);
+            $("#qty").prop('readonly', true);
         } else {
-            $("#qty").prop('disabled', false);
+            $("#qty").prop('readonly', false);
         }
     });
     $("#property-type-lease").change(function () {
         if ($("#property-type-lease").val() === 'Lot' || $("#property-type-lease").val() === 'House and Lot' ||
             $("#property-type-lease").val() === 'Apartment' || $("#property-type-lease").val() === 'House') {
             $("#qty").val(1);
-            $("#qty").prop('disabled', true);
+            $("#qty").prop('readonly', true);
         } else {
-            $("#qty").prop('disabled', false);
+            $("#qty").prop('readonly', false);
         }
     });
 
