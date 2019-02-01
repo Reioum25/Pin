@@ -1,4 +1,4 @@
-@if(auth()->guest())
+
 <nav style="background-color: #131f28 " class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
@@ -145,8 +145,3 @@
             </div>
         </div>
     </nav>
-@elseif(auth()->user()->admin == 1)
-    @include('admin.admin-style.navbar')
-@elseif(auth()->user()->admin == 2)
-    @include('admin.admin-style.navbar')
-@endif
