@@ -1,7 +1,7 @@
     <nav style="background-color: #131f28 " class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="/images/epwesto_logo.png" height="40">
+                <img src="/images/epwesto_logo1.png" height="60">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -122,7 +122,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="/home/account">My Account</a>
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

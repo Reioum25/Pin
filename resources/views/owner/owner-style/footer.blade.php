@@ -2,24 +2,26 @@
   <div class="container">
   <div class="row">
     <div class="col-12 col-md">
-      <h2 class="mb-2 text-light">Epwesto</h2>
+      <a class="navbar-brand" href="/">
+                <img src="/images/epwesto_logo1.png" height="150">
+            </a>
     </div>
     <div class="col-6 col-md text-info">
-      <h5>Contact Us</h5>
+      <h5 style="color:#c9d700">Contact Us</h5>
       <ul class="list-unstyled text-small">
-        <li class="text-light">Phone: 09050227027</li>
-        <li class="text-light">Tel: (062) 975-5935</li>
-        <li class="text-light">Email: Epwesto@gmail.com</li>
-        <li class="text-light">Facebook: facebook/epwesto</li>
+        <li style="color:#c9d700 ;" class="text-light">Phone: 09050227027</li>
+        <li style="color:#c9d700 ;" class="text-light">Tel: (062) 975-5935</li>
+        <li style="color:#c9d700 ;" class="text-light">Email: Epwesto@gmail.com</li>
+        <li style="color:#c9d700 ;" class="text-light">Facebook: facebook/epwesto</li>
       </ul>
     </div>
     <div class="col-6 col-md text-info">
-      <h5>About</h5>
+      <h5 style="color:#c9d700">About</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-light" href="#">Team</a></li>
-        <li><a class="text-light" href="#">Locations</a></li>
-        <li><a class="text-light" href="#">Privacy</a></li>
-        <li><a class="text-light" href="#">Terms</a></li>
+        <li><a style="color:#c9d700 ;" class="text-light" href="#">Team</a></li>
+        <li><a style="color:#c9d700 ;" class="text-light" href="#">Locations</a></li>
+        <li><a style="color:#c9d700 ;" class="text-light" href="#">Privacy</a></li>
+        <li><a style="color:#c9d700" class="text-light" href="#">Terms</a></li>
       </ul>
     </div>
   </div>

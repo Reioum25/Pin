@@ -107,6 +107,7 @@
                 </div>
             </div>
             <div class="col-9">
+            <br><br>
                 <h2 class="mb-4">Search results</h2>
                 <div class="container">
                     <div class="row">

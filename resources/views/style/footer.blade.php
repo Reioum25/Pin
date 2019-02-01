@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-12 col-md">
       <a class="navbar-brand" href="/">
-                <img src="/images/epwesto_logo.png" height="80">
+                <img src="/images/epwesto_logo1.png" height="150">
             </a>
     </div>
     <div class="col-6 col-md text-info">
