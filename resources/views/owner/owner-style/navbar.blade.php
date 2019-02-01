@@ -23,6 +23,9 @@
                    <li class="nav-item">
                        <a style="color:#c9d700" class="nav-link" href="/home/appointment">Appointment <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
                     </li>
+                    <li class="nav-item">
+                        <a style="color:#c9d700" class="nav-link" href="{{ route('user.subscribe.current') }}">My Subscriptions <span class="badge badge-danger" id="count-notification">{{auth()->user()->unreadNotifications->count()}}</span><span class="caret"></span></a>             
+                     </li>
 
     
                   <!--   <li class="nav-item">
